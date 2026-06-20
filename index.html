@@ -841,6 +841,21 @@
             </div>
             <p>📺 HOMELAND SEASON 1 — 12 Episode</p>
         </div>
+        <div class="photo-card" data-category="series" data-series="isekai-shokudou">
+            <div class="img-wrap" style="position:relative;height:260px;overflow:hidden;background:linear-gradient(145deg,#1a0a2e 0%,#2d1b4e 30%,#4a2d6b 60%,#2d1b4e 100%);display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(150,100,255,0.3)">
+                <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,transparent,transparent 2px,rgba(150,100,255,0.08) 2px,rgba(150,100,255,0.08) 4px),repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.2) 2px,rgba(0,0,0,0.2) 4px);pointer-events:none"></div>
+                <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(150,100,255,0.15) 0%,transparent 60%);pointer-events:none"></div>
+                <div style="position:relative;z-index:1;text-align:center;color:#fff">
+                    <div style="font-size:48px;margin-bottom:4px;opacity:0.8">🍜</div>
+                    <div style="font-size:10px;letter-spacing:4px;text-transform:uppercase;opacity:0.5;margin-bottom:10px">ANIME SERIES</div>
+                    <div style="font-size:22px;font-weight:900;letter-spacing:2px;text-transform:uppercase;background:linear-gradient(135deg,#ff9a9e,#fad0c4,#a18cd1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2">ISEKAI<br>SHOKUDOU</div>
+                    <div style="font-size:12px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:rgba(200,150,255,0.8);margin-top:4px">SEASON 1</div>
+                    <div style="width:50px;height:2px;background:linear-gradient(90deg,transparent,#a18cd1,transparent);margin:10px auto;border-radius:2px"></div>
+                    <div style="margin-top:8px;display:inline-block;padding:3px 14px;border:1px solid rgba(150,100,255,0.4);border-radius:16px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(150,100,255,0.7)">12 Episodes</div>
+                </div>
+            </div>
+            <p>🍜 Isekai Shokudou S1 — 12 Episode</p>
+        </div>
         <div class="photo-card" data-category="film">
             <div class="img-wrap" style="position:relative;height:260px;overflow:hidden;background:linear-gradient(145deg,#0d0d2b 0%,#1a0533 30%,#2d1b69 60%,#1a0533 100%);display:flex;align-items:center;justify-content:center">
                 <video src="https://ptok2.pcloud.com/cBZPi71TV7Z0fAYNw7ZZZpN2l5kZQ5ZZWFXZkZRBlpc7ZCMZuzZtTZhgZUTZoTZkYZZczZzgZpRZcpZALZ7gZwnnt5ZMbdKHdPsPtuqYd13wJMjMhyD6o1X/Lk21.De-Hoppers%20%282026%29-1080p.mp4" preload="none" style="display:none"></video>
@@ -1087,6 +1102,60 @@
     <script>
         // Episode data
         var seriesData = {
+        isekai-shokudou: {
+                title: "ISEKAI SHOKUDOU SEASON 1",
+                seasons: {
+                    1: [{
+                        ep: 1,
+                        title: "Episode 1",
+                        src: "https://eli.it.tabdigital.cloud/s/n4BxxrQ8Kwy845p/download"
+                    }, {
+                        ep: 2,
+                        title: "Episode 2",
+                        src: "https://eli.it.tabdigital.cloud/s/JydoFZfHRxMcD6Y/download"
+                    }, {
+                        ep: 3,
+                        title: "Episode 3",
+                        src: ""
+                    }, {
+                        ep: 4,
+                        title: "Episode 4",
+                        src: ""
+                    }, {
+                        ep: 5,
+                        title: "Episode 5",
+                        src: ""
+                    }, {
+                        ep: 6,
+                        title: "Episode 6",
+                        src: ""
+                    }, {
+                        ep: 7,
+                        title: "Episode 7",
+                        src: ""
+                    }, {
+                        ep: 8,
+                        title: "Episode 8",
+                        src: ""
+                    }, {
+                        ep: 9,
+                        title: "Episode 9",
+                        src: ""
+                    }, {
+                        ep: 10,
+                        title: "Episode 10",
+                        src: ""
+                    }, {
+                        ep: 11,
+                        title: "Episode 11",
+                        src: ""
+                    }, {
+                        ep: 12,
+                        title: "Episode 12",
+                        src: ""
+                    }]
+                }
+            },
             homeland: {
                 title: "HOMELAND SEASON 1",
                 seasons: {
@@ -1388,7 +1457,7 @@
         }
         document.querySelectorAll('.photo-card').forEach(c => c.addEventListener('click', function() {
             if (this.dataset.category === 'series') {
-                openSeries('homeland');
+                openSeries(this.dataset.series || 'homeland');
                 return
             }
             openModal(this.querySelector('img') || this.querySelector('video') || this)
@@ -1413,4 +1482,4 @@
     </script>
 </body>
 
-  </html>
+    </html>
