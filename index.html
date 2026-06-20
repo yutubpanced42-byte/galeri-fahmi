@@ -301,20 +301,23 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 22px;
+            position: relative;
+            contain: layout style;
         }
 
         /* ─── PHOTO CARD ─── */
         .photo-card {
             background: var(--bg-card);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border);
             border-radius: 18px;
             overflow: hidden;
             cursor: pointer;
-            transition: all .35s cubic-bezier(.4,0,.2,1);
-            animation: cardPop .5s cubic-bezier(.4,0,.2,1) both;
+            transition: opacity .3s cubic-bezier(.4,0,.2,1), transform .3s cubic-bezier(.4,0,.2,1), box-shadow .3s cubic-bezier(.4,0,.2,1), border-color .3s cubic-bezier(.4,0,.2,1);
+            animation: cardPop .45s cubic-bezier(.4,0,.2,1) both;
             position: relative;
+            will-change: opacity, transform;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
         }
 
         .photo-card::before {
@@ -337,7 +340,18 @@
             opacity: 1;
         }
 
-        .photo-card.hidden { display: none; }
+        .photo-card.hidden {
+            opacity: 0;
+            transform: scale(0.92) translateY(16px);
+            pointer-events: none;
+            position: absolute;
+            visibility: hidden;
+        }
+
+        .photo-card.filter-out {
+            opacity: 0;
+            transform: scale(0.95) translateY(10px);
+        }
 
         @keyframes cardPop {
             from { opacity: 0; transform: translateY(32px) scale(0.92); }
@@ -345,8 +359,8 @@
         }
 
         .photo-card:hover {
-            transform: translateY(-8px) scale(1.012);
-            box-shadow: 0 20px 48px var(--shadow-hover);
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 16px 40px var(--shadow-hover);
             border-color: var(--border-hover);
         }
 
@@ -667,6 +681,13 @@
             object-fit: contain;
         }
 
+        #modalIframe {
+            display: none;
+            border: none;
+            border-radius: 16px;
+            background: #000;
+        }
+
         @keyframes slideInRight  { from { transform: translateX(100px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
         @keyframes slideOutLeft  { from { transform: translateX(0); opacity: 1; } to { transform: translateX(-100px); opacity: 0; } }
         @keyframes slideInLeft   { from { transform: translateX(-100px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
@@ -817,6 +838,17 @@
 
         .ep-card.playing .ep-title { opacity: .85; }
 
+        .ep-card.locked {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        .ep-card.locked:hover {
+            transform: none;
+            box-shadow: none;
+            border-color: var(--border);
+        }
+
         #epVideo {
             width: 100%;
             max-height: 380px;
@@ -874,7 +906,7 @@
         </div>
         <div class="header-right">
             <div class="stats-pill" id="statsPill">
-                <span id="statsCount">4</span> item
+                <span id="statsCount">3</span> item
             </div>
             <button class="theme-btn" id="themeToggle" onclick="toggleTheme()">🌙 Dark</button>
         </div>
@@ -886,7 +918,7 @@
     <div class="section-header">
         <div class="section-title-row">
             <div class="section-title">Koleksi</div>
-            <div class="count-badge" id="countBadge">4 Item</div>
+            <div class="count-badge" id="countBadge">3 Item</div>
         </div>
 
         <!-- Filters -->
@@ -981,7 +1013,7 @@
                     <div style="font-size:32px;font-weight:900;letter-spacing:3px;text-transform:uppercase;background:linear-gradient(135deg,#f0e6ff,#c4a0ff,#7c4dff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;filter:drop-shadow(0 0 20px rgba(124,77,255,0.4))">DE-HOPPERS</div>
                     <div style="width:70px;height:3px;background:linear-gradient(90deg,transparent,#7c4dff,transparent);margin:14px auto;border-radius:3px"></div>
                     <div style="display:inline-flex;align-items:center;gap:8px;padding:5px 18px;border:1px solid rgba(255,255,255,0.2);border-radius:50px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.65)">
-                        <span style="width:6px;height:6px;border-radius:50%;background:#7c4dff;box-shadow:0 0 8px #7c4dff;display:inline-block;animation:pulse 2s infinite"></span>Now Streaming
+                        <span style="width:6px;height:6px;border-radius:50%;background:#7c4dff;box-shadow:0 0 8px #7c4dff;display:inline-block;animation:pulsePurple 2s infinite"></span>Now Streaming
                     </div>
                 </div>
             </div>
@@ -1022,6 +1054,31 @@
             </div>
         </div>
 
+        <!-- ── NORMAL (2025) ── -->
+        <div class="photo-card" data-category="film" data-iframe-src="https://u.pcloud.link/publink/show?code=XZ1bpN5ZSmQrQ7tvLgpBMPoUNzymtQMhgkJV" style="animation-delay:.24s">
+            <div class="img-wrap" style="position:relative;height:270px;overflow:hidden;background:linear-gradient(145deg,#1a1a2e 0%,#16213e 35%,#0f3460 65%,#1a1a2e 100%);display:flex;align-items:center;justify-content:center">
+                <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 35%,rgba(15,52,96,0.45) 0%,transparent 55%),radial-gradient(ellipse at 75% 65%,rgba(99,102,241,0.2) 0%,transparent 50%);pointer-events:none"></div>
+                <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.012) 3px,rgba(255,255,255,0.012) 4px);pointer-events:none"></div>
+                <div style="position:absolute;top:14px;right:14px;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,0.35);text-transform:uppercase;font-weight:700">2025</div>
+                <div style="position:relative;z-index:1;text-align:center;color:#fff;padding:20px">
+                    <div style="font-size:9px;letter-spacing:5px;text-transform:uppercase;color:rgba(129,140,248,0.55);margin-bottom:14px">DRAMA · THRILLER</div>
+                    <div style="font-size:30px;font-weight:900;letter-spacing:3px;text-transform:uppercase;background:linear-gradient(135deg,#e0e7ff,#818cf8,#4f46e5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;filter:drop-shadow(0 0 20px rgba(79,70,229,0.4))">NORMAL</div>
+                    <div style="width:70px;height:3px;background:linear-gradient(90deg,transparent,#4f46e5,transparent);margin:14px auto;border-radius:3px"></div>
+                    <div style="display:inline-flex;align-items:center;gap:8px;padding:5px 18px;border:1px solid rgba(255,255,255,0.2);border-radius:50px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.65)">
+                        <span style="width:6px;height:6px;border-radius:50%;background:#4f46e5;box-shadow:0 0 8px #4f46e5;display:inline-block;animation:pulseIndigo 2s infinite"></span>Now Streaming
+                    </div>
+                </div>
+            </div>
+            <div class="card-overlay">
+                <div class="card-overlay-icon">🎬</div>
+            </div>
+            <span class="card-badge badge-film">Film</span>
+            <div class="card-footer">
+                <span class="card-title">🎬 Normal (2025)</span>
+                <div class="card-arrow">›</div>
+            </div>
+        </div>
+
     </section>
 </main>
 
@@ -1046,6 +1103,7 @@
             <video id="modalVideo" controls muted preload="auto" style="display:none;max-width:88vw;max-height:82vh;border-radius:16px">
                 <source id="modalVideoSource" src="" type="video/mp4">
             </video>
+            <iframe id="modalIframe" src="" allowfullscreen allow="autoplay; encrypted-media" style="display:none;width:88vw;max-width:960px;height:75vh;border:none;border-radius:16px;background:#000"></iframe>
         </div>
         <div class="modal-caption" id="modalCaption"></div>
     </div>
@@ -1069,8 +1127,20 @@
 
 <style>
 @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: .5; transform: scale(0.8); }
+}
+@keyframes pulsePurple {
     0%, 100% { opacity: 1; box-shadow: 0 0 8px #7c4dff; }
     50%       { opacity: .5; box-shadow: 0 0 2px #7c4dff; }
+}
+@keyframes pulseYellow {
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px #ffeb3b; }
+    50%       { opacity: .5; box-shadow: 0 0 2px #ffeb3b; }
+}
+@keyframes pulseIndigo {
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px #4f46e5; }
+    50%       { opacity: .5; box-shadow: 0 0 2px #4f46e5; }
 }
 </style>
 
@@ -1120,6 +1190,7 @@ var seriesData = {
 };
 
 var curSeries=null, curSeason=1, currentIndex=0, visibleItems=[], animating=false, currentFilter='film';
+var filterGeneration=0;  /* race-condition guard */
 
 /* ─── Series / Episode ─── */
 function openSeries(id) {
@@ -1187,34 +1258,67 @@ function closeEP() {
 
 /* ─── Gallery Filter ─── */
 function getVisible() {
-    return Array.from(document.querySelectorAll('.photo-card:not(.hidden)'));
+    return Array.from(document.querySelectorAll('.photo-card:not(.hidden):not(.filter-out)'));
 }
 
 function filterGallery(cat, btn) {
     currentFilter = cat;
+    var gen = ++filterGeneration;  /* capture generation for race guard */
     document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
     btn.classList.add('active');
     var items = document.querySelectorAll('.photo-card:not(.empty-state)');
     var count = 0;
-    items.forEach(function(item, i){
+    var matchItems = [];
+    var hideItems = [];
+
+    items.forEach(function(item){
+        if (item.classList.contains('empty-state')) return;
         var match = (cat==='all') || item.dataset.category===cat;
-        if (!item.classList.contains('empty-state')) {
-            if (match) {
-                count++;
-                item.classList.remove('hidden');
-                item.style.animation = 'none';
-                void item.offsetHeight;
-                item.style.animation = 'cardPop .5s cubic-bezier(.4,0,.2,1) both';
-                item.style.animationDelay = (i%10)*0.06+'s';
-            } else {
-                item.classList.add('hidden');
-            }
+        if (match) {
+            count++;
+            matchItems.push(item);
+        } else {
+            hideItems.push(item);
         }
     });
-    document.getElementById('emptyState').classList.toggle('show', count===0);
-    document.getElementById('countBadge').textContent = count+' Item';
-    document.getElementById('statsCount').textContent  = count;
-    visibleItems = getVisible();
+
+    /* Immediately show match items that are currently hidden/fading */
+    matchItems.forEach(function(item){
+        item.classList.remove('hidden', 'filter-out');
+        item.style.transitionDelay = '';
+    });
+
+    /* Fade out non-matching cards with stagger */
+    hideItems.forEach(function(item, i){
+        item.style.transitionDelay = (i % 8) * 0.03 + 's';
+        item.classList.remove('hidden');
+        void item.offsetHeight;
+        item.classList.add('filter-out');
+    });
+
+    /* After fade-out completes, hide them and pop in matches */
+    setTimeout(function(){
+        if (gen !== filterGeneration) return;  /* stale call, skip */
+
+        hideItems.forEach(function(item){
+            item.classList.remove('filter-out');
+            item.classList.add('hidden');
+            item.style.transitionDelay = '';
+        });
+
+        matchItems.forEach(function(item, i){
+            item.classList.remove('hidden', 'filter-out');
+            item.style.animation = 'none';
+            void item.offsetHeight;
+            item.style.animation = 'cardPop .45s cubic-bezier(.4,0,.2,1) both';
+            item.style.animationDelay = (i % 8) * 0.04 + 's';
+        });
+
+        document.getElementById('emptyState').classList.toggle('show', count===0);
+        document.getElementById('countBadge').textContent = count+' Item';
+        document.getElementById('statsCount').textContent  = count;
+        visibleItems = getVisible();
+    }, 220);
 }
 
 /* ─── Modal ─── */
@@ -1227,9 +1331,9 @@ function openModal(el) {
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
     var box = modal.querySelector('.modal-box');
-    box.classList.remove('slide-in');
+    box.style.animation = 'none';
     void box.offsetHeight;
-    box.classList.add('slide-in');
+    box.style.animation = 'modalIn .38s cubic-bezier(.34,1.56,.64,1) both';
     updateModal();
 }
 
@@ -1237,10 +1341,24 @@ function updateModal() {
     if (!visibleItems.length) return;
     var modalImg   = document.getElementById('modalImage'),
         modalVid   = document.getElementById('modalVideo'),
-        modalVidSrc= document.getElementById('modalVideoSource');
+        modalVidSrc= document.getElementById('modalVideoSource'),
+        modalIframe= document.getElementById('modalIframe');
     var cur = visibleItems[currentIndex], isFilm = cur.dataset.category==='film';
-    if (isFilm) {
-        modalImg.style.display='none'; modalVid.style.display='block'; modalVid.muted=true;
+    var iframeSrc = cur.dataset.iframeSrc || '';
+
+    /* Hide everything first */
+    modalVid.style.display='none';
+    modalIframe.style.display='none';
+    modalImg.style.display='none';
+
+    if (isFilm && iframeSrc) {
+        /* Film with iframe (e.g. pCloud link) */
+        modalIframe.src = iframeSrc;
+        modalIframe.style.display = 'block';
+        document.getElementById('modalCaption').textContent = '🎬 '+cur.querySelector('.card-title').textContent;
+    } else if (isFilm) {
+        /* Film with direct video */
+        modalVid.style.display='block'; modalVid.muted=true;
         var vidEl = cur.querySelector('video'), vidSrc = vidEl ? vidEl.getAttribute('src') : '';
         if (vidSrc) {
             modalVidSrc.src = vidSrc; modalVid.load();
@@ -1248,7 +1366,7 @@ function updateModal() {
         }
         document.getElementById('modalCaption').textContent = '🎬 '+cur.querySelector('.card-title').textContent;
     } else {
-        modalVid.pause(); modalVid.style.display='none'; modalImg.style.display='block';
+        modalImg.style.display='block';
         var img = cur.querySelector('img');
         if (img) { modalImg.src=img.src; modalImg.alt=img.alt; }
         modalImg.classList.remove('sl-left','sr-left','sl-right','sr-right');
@@ -1258,8 +1376,10 @@ function updateModal() {
 }
 
 function closeModal() {
-    var modal = document.getElementById('imageModal'), vid = document.getElementById('modalVideo');
+    var modal = document.getElementById('imageModal'), vid = document.getElementById('modalVideo'),
+        iframe = document.getElementById('modalIframe');
     vid.pause(); vid.currentTime=0;
+    iframe.src = '';  /* stop iframe playback */
     modal.classList.add('blur-out');
     setTimeout(function(){
         modal.style.display='none'; modal.classList.remove('blur-out');
@@ -1270,10 +1390,13 @@ function closeModal() {
 function slideTo(newIdx, dir) {
     if (animating||newIdx===currentIndex) return;
     animating=true;
-    var modalImg=document.getElementById('modalImage'), modalVid=document.getElementById('modalVideo');
+    var modalImg=document.getElementById('modalImage'), modalVid=document.getElementById('modalVideo'),
+        modalIframe=document.getElementById('modalIframe');
     var isFilm=visibleItems[newIdx].dataset.category==='film', wasFilm=visibleItems[currentIndex].dataset.category==='film';
     if (isFilm||wasFilm) { currentIndex=newIdx; updateModal(); animating=false; return; }
-    modalVid.pause(); modalVid.style.display='none'; modalImg.style.display='block';
+    modalVid.pause(); modalVid.style.display='none';
+    modalIframe.src=''; modalIframe.style.display='none';
+    modalImg.style.display='block';
     modalImg.classList.remove('sl-left','sr-left','sl-right','sr-right');
     modalImg.classList.add(dir==='next'?'sl-left':'sl-right');
     setTimeout(function(){
@@ -1324,6 +1447,14 @@ document.addEventListener('keydown', function(e){
     if (e.key==='ArrowRight') slideTo((currentIndex+1)%visibleItems.length,'next');
 });
 
+/* Blur iframe on modal click so ESC/arrows work again */
+document.getElementById('imageModal').addEventListener('click', function(e){
+    if (e.target.tagName !== 'IFRAME') {
+        var iframe = document.getElementById('modalIframe');
+        if (iframe) iframe.blur();
+    }
+});
+
 /* Touch swipe */
 var touchStartX=0;
 document.getElementById('imageModal').addEventListener('touchstart', function(e){ touchStartX=e.touches[0].clientX; });
@@ -1336,8 +1467,8 @@ var activeBtn=document.querySelector('.filter-btn.active');
 if (activeBtn) filterGallery(activeBtn.dataset.filter, activeBtn);
 
 document.querySelectorAll('.photo-card').forEach(function(c,i){
-    c.style.animationDelay=(i%10)*0.06+'s';
+    c.style.animationDelay=(i%8)*0.04+'s';
 });
 </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0e97f6d1a9be9c8',t:'MTc4MTk0NTEzMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0eaa05c6b7cc6e5',t:'MTc4MTk1Njk2NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    </html>
