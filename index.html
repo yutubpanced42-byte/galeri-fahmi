@@ -1122,6 +1122,7 @@
         <video id="epVideo" controls preload="metadata">
             <source id="epVideoSrc" src="" type="video/mp4">
         </video>
+        <iframe id="epIframe" src="" allowfullscreen allow="autoplay; encrypted-media" style="display:none;width:100%;max-height:380px;border-radius:12px;background:#000;border:none"></iframe>
     </div>
 </div>
 
@@ -1154,16 +1155,16 @@ var seriesData = {
             1: [
                 { ep:1,  title:"Beef Stew",      src:"https://eli.it.tabdigital.cloud/s/SgexZweW59nCW2k/download" },
                 { ep:2,  title:"Minchi Katsu",   src:"https://eli.it.tabdigital.cloud/s/2WXNtLgMx44ycnx/download" },
-                { ep:3,  title:"Episode 3",      src:"" },
-                { ep:4,  title:"Episode 4",      src:"" },
-                { ep:5,  title:"Episode 5",      src:"" },
-                { ep:6,  title:"Episode 6",      src:"" },
-                { ep:7,  title:"Episode 7",      src:"" },
-                { ep:8,  title:"Episode 8",      src:"" },
-                { ep:9,  title:"Episode 9",      src:"" },
-                { ep:10, title:"Episode 10",     src:"" },
-                { ep:11, title:"Episode 11",     src:"" },
-                { ep:12, title:"Episode 12",     src:"" }
+                { ep:3,  title:"Episode 3",      src:"https://mega.nz/embed/jSQFRAxa#5ZXdFSlHbmh0UOkOgnGmvGHACkMvFuybJC9hsago2hM" },
+                { ep:4,  title:"Episode 4",      src:"https://mega.nz/embed/SHQnjIRJ#6LIXSDzDGdwvoKaHylhg4GGw91QOB9_Ynq8XAkZfypU" },
+                { ep:5,  title:"Episode 5",      src:"https://mega.nz/embed/#!yKAniQxY!bBoslp_ku5dFTJkQW9qLzJbcLHfaDLk9pux9FBrQZsk" },
+                { ep:6,  title:"Episode 6",      src:"https://mega.nz/embed/GPJn0IjZ#8qRwpUSK1H91FhZaq1msL6E7oJF5pe40KG_AQ6Gj4vE" },
+                { ep:7,  title:"Episode 7",      src:"https://mega.nz/embed/yaYnVIDC#YePMdGbzElBNSNXL4tpANyBrjUZ0TYdnJGhtDVGARpg" },
+                { ep:8,  title:"Episode 8",      src:"https://mega.nz/embed/yaQ1mYoD#KPISp2x8BCehIeZrZOKfyaBnmXzZScAkba8cvwCj0Nc" },
+                { ep:9,  title:"Episode 9",      src:"https://mega.nz/embed/2aYHhKqL#TSm_W9wNBEz1iVIw2q7fXvsz8csCHdEU74C5RfFSD0A" },
+                { ep:10, title:"Episode 10",     src:"https://mega.nz/embed/mXJV3KQa#W3QxfF7Nu2IuHp--v_Vk0p3kbRRIa2vb2N_vVQRrTfk" },
+                { ep:11, title:"Episode 11",     src:"https://mega.nz/embed/ebZVkQRZ#4EIBF8KBIS15874FUswGHtTlvNLpSruJrNG1_Yuc10s" },
+                { ep:12, title:"Episode 12",     src:"https://mega.nz/embed/7WJhnC7a#ODhrhmbmoEFhuUNkDUNNlVpUGKGSFTUAimMabYYdfr4" }
             ]
         }
     },
@@ -1238,21 +1239,34 @@ function playEP(ep, el) {
     document.querySelectorAll('.ep-card').forEach(function(c){ c.classList.remove('playing'); });
     el.classList.add('playing');
     var found = seriesData[curSeries].seasons[curSeason].find(function(e){ return e.ep==ep; });
-    var vid = document.getElementById('epVideo'), src = document.getElementById('epVideoSrc');
+    var vid = document.getElementById('epVideo'), src = document.getElementById('epVideoSrc'),
+        iframe = document.getElementById('epIframe');
     if (found && found.src) {
-        src.src = found.src;
-        vid.style.display = 'block';
-        vid.load();
-        vid.play().catch(function(){});
-        vid.scrollIntoView({ behavior:'smooth', block:'nearest' });
+        if (found.src.includes('/embed/')) {
+            vid.style.display = 'none';
+            iframe.style.display = 'block';
+            iframe.src = found.src;
+            iframe.scrollIntoView({ behavior:'smooth', block:'nearest' });
+        } else {
+            iframe.style.display = 'none';
+            iframe.src = '';
+            src.src = found.src;
+            vid.style.display = 'block';
+            vid.load();
+            vid.play().catch(function(){});
+            vid.scrollIntoView({ behavior:'smooth', block:'nearest' });
+        }
     }
 }
 
 function closeEP() {
     document.getElementById('epPicker').classList.remove('show');
     document.querySelector('.modal-box').style.display = '';
-    var vid = document.getElementById('epVideo');
+    var vid = document.getElementById('epVideo'),
+        iframe = document.getElementById('epIframe');
     vid.pause(); vid.style.display = 'none';
+    iframe.style.display = 'none';
+    iframe.src = '';
     closeModal();
 }
 
