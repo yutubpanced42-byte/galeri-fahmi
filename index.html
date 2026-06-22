@@ -708,6 +708,11 @@
             max-width: 820px;
             color: var(--text);
         }
+        .ep-picker.show { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
 
         .ep-picker.show { display: block; }
 
@@ -851,10 +856,24 @@
 
         #epVideo {
             width: 100%;
-            max-height: 380px;
+            max-width: 400px;
+            aspect-ratio: 1 / 1;
             border-radius: 12px;
             background: #000;
             display: none;
+            object-fit: contain;
+            margin: 0 auto;
+        }
+
+        #epIframe {
+            display: none;
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 1 / 1;
+            border-radius: 12px;
+            background: #000;
+            border: none;
+            margin: 0 auto;
         }
 
         /* ─── RESPONSIVE ─── */
@@ -1122,7 +1141,7 @@
         <video id="epVideo" controls preload="metadata">
             <source id="epVideoSrc" src="" type="video/mp4">
         </video>
-        <iframe id="epIframe" src="" allowfullscreen allow="autoplay; encrypted-media" style="display:none;width:100%;max-height:380px;border-radius:12px;background:#000;border:none"></iframe>
+        <iframe id="epIframe" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
     </div>
 </div>
 
@@ -1484,5 +1503,5 @@ document.querySelectorAll('.photo-card').forEach(function(c,i){
     c.style.animationDelay=(i%8)*0.04+'s';
 });
 </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0eaa05c6b7cc6e5',t:'MTc4MTk1Njk2NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-    </html>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0eaa05c6b7cc6e5',t:'MTc4MTk1Njk2NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0fbf902293c4e3c',t:'MTc4MjEzODg1NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+                    </html>
