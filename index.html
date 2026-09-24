@@ -737,6 +737,27 @@
             margin-top: 4px;
         }
 
+        .ep-source {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 18px;
+            min-height: 40px;
+            border-radius: 50px;
+            border: 1.5px solid var(--border);
+            background: var(--bg-card);
+            color: var(--accent);
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all .22s;
+        }
+        .ep-source:hover,
+        .ep-source:focus-visible {
+            border-color: var(--border-hover);
+            box-shadow: 0 4px 14px var(--shadow-hover);
+        }
+        .ep-source[hidden] { display: none; }
+
         .ep-close {
             position: absolute;
             top: -48px;
@@ -810,6 +831,12 @@
             text-align: center;
             transition: all .25s cubic-bezier(.4,0,.2,1);
             backdrop-filter: blur(8px);
+            font-family: inherit;
+            font-size: inherit;
+            color: inherit;
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
         }
 
         .ep-card:hover {
@@ -879,6 +906,149 @@
             box-shadow: 0 8px 24px rgba(0,0,0,0.5);
         }
 
+        /* ══════════ FOCUS & AFFORDANCE (TV / Keyboard / Touch) ══════════ */
+        * { touch-action: manipulation; }
+        :focus { outline: none; }
+
+        .filter-btn:focus-visible,
+        .theme-btn:focus-visible,
+        .season-btn:focus-visible,
+        .modal-close:focus-visible,
+        .modal-nav:focus-visible,
+        .ep-close:focus-visible,
+        .ep-card:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+            box-shadow: 0 0 0 7px rgba(99,102,241,0.28);
+        }
+
+        .photo-card:focus,
+        .photo-card:focus-visible {
+            outline: 4px solid var(--accent);
+            outline-offset: 4px;
+            box-shadow: 0 0 0 9px rgba(99,102,241,0.30), 0 16px 40px var(--shadow-hover);
+            border-color: var(--accent);
+            transform: translateY(-4px) scale(1.01);
+        }
+
+        .photo-card:focus .card-overlay { opacity: 1; }
+        .photo-card:focus .card-overlay-icon { transform: scale(1); }
+        .photo-card:focus .card-arrow { opacity: 1; transform: scale(1); }
+        .photo-card:focus img { transform: scale(1.06); }
+
+        /* Play overlay selalu tampak (bukan hover-only) */
+        .card-overlay {
+            opacity: 1;
+            background: linear-gradient(180deg, transparent 52%, rgba(10,10,30,0.55) 100%);
+        }
+        .card-overlay-icon { transform: scale(0.85); }
+        .photo-card:hover .card-overlay-icon { transform: scale(1); }
+
+        /* Chevron footer selalu tampak sebagai affordance klik */
+        .card-arrow { opacity: .9; transform: scale(1); }
+        .photo-card:hover .card-arrow,
+        .photo-card:focus .card-arrow {
+            opacity: 1;
+            transform: scale(1.08);
+        }
+
+        .photo-card:active { transform: translateY(-2px) scale(0.99); }
+
+        /* Fallback bila video gagal dimuat */
+        .media-fallback {
+            display: none;
+            position: absolute;
+            inset: 0;
+            z-index: 5;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+            padding: 24px;
+            background: rgba(5,5,18,0.92);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 16px;
+        }
+        .media-fallback.show { display: flex; }
+        .media-fallback button {
+            margin-top: 6px;
+            min-height: 44px;
+            padding: 10px 22px;
+            border-radius: 50px;
+            border: 1.5px solid rgba(255,255,255,0.35);
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* Skip link */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 8px;
+            z-index: 2000;
+            background: var(--accent);
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+        .skip-link:focus { left: 12px; }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+        }
+
+        /* ─── ANDROID TV / COARSE POINTER (remote D-pad) ─── */
+        @media (pointer: coarse) {
+            .filter-btn,
+            .theme-btn {
+                min-height: 52px;
+                padding: 12px 26px;
+                font-size: 15px;
+            }
+            .modal-close,
+            .ep-close { width: 52px; height: 52px; font-size: 20px; }
+            .modal-nav { width: 56px; height: 56px; font-size: 22px; }
+            .ep-card { min-height: 72px; }
+            .season-btn { min-height: 48px; padding: 12px 22px; font-size: 14px; }
+            .card-title { font-size: 14px; }
+            .stats-pill { font-size: 13px; padding: 8px 16px; }
+            .photo-card:hover { transform: none; } /* TV tak punya hover nyata */
+            .photo-card:hover img { transform: none; }
+        }
+
+        @media (pointer: coarse) and (min-width: 900px) {
+            /* Android TV: grid besar, teks besar, margin lega */
+            .header-inner { height: 84px; }
+            .header-text h1 { font-size: 28px; }
+            .header-text p { font-size: 15px; }
+            .logo-icon { width: 52px; height: 52px; font-size: 26px; }
+            main { max-width: 1600px; padding: 44px 48px 72px; }
+            .gallery { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+            .photo-card img,
+            .photo-card .img-wrap { height: 320px; }
+            .filter-btn { font-size: 17px; }
+            .section-title { font-size: 17px; }
+            .modal-prev { left: -70px; }
+            .modal-next { right: -70px; }
+        }
+
+        @media (pointer: coarse) and (min-width: 900px) and (max-width: 1300px) {
+            .modal-prev { left: 10px; }
+            .modal-next { right: 10px; }
+        }
+
         /* ─── RESPONSIVE ─── */
         @media (max-width: 768px) {
             .header-inner { height: 60px; padding: 0; }
@@ -916,21 +1086,24 @@
 </head>
 <body>
 
+<a class="skip-link" href="#gallery">Lompat ke katalog</a>
+
 <!-- ══════════ HEADER ══════════ -->
 <header>
     <div class="header-inner">
         <div class="header-brand">
-            <div class="logo-icon">🎞️</div>
+            <div class="logo-icon" aria-hidden="true">🎞️</div>
             <div class="header-text">
                 <h1>GalleryFahmi</h1>
-                <p>Pilih kategori untuk menjelajahi koleksi</p>
+                <p>Katalog streaming — Film, Series &amp; Anime</p>
             </div>
         </div>
         <div class="header-right">
-            <div class="stats-pill" id="statsPill">
+            <div class="stats-pill" id="statsPill" aria-live="polite" aria-label="Jumlah item tampil">
                 <span id="statsCount">3</span> item
             </div>
-            <button class="theme-btn" id="themeToggle" onclick="toggleTheme()">🌙 Dark</button>
+            <button type="button" class="theme-btn" id="themeToggle" onclick="toggleTheme()"
+                    aria-label="Ganti tema terang atau gelap">🌙 Dark</button>
         </div>
     </div>
 </header>
@@ -944,15 +1117,15 @@
         </div>
 
         <!-- Filters -->
-        <div class="filters">
-            <button class="filter-btn active" data-filter="film">🎬 Film</button>
-            <button class="filter-btn" data-filter="series">📺 Series</button>
-            <button class="filter-btn" data-filter="anime">🍜 Anime</button>
+        <div class="filters" role="group" aria-label="Filter kategori">
+            <button type="button" class="filter-btn active" data-filter="film" aria-pressed="true">🎬 Film</button>
+            <button type="button" class="filter-btn" data-filter="series" aria-pressed="false">📺 Series</button>
+            <button type="button" class="filter-btn" data-filter="anime" aria-pressed="false">🍜 Anime</button>
         </div>
     </div>
 
     <!-- Gallery -->
-    <section class="gallery" id="gallery">
+    <section class="gallery" id="gallery" tabindex="-1" aria-label="Katalog konten">
 
         <!-- Empty State -->
         <div class="empty-state" id="emptyState">
@@ -985,6 +1158,33 @@
             <span class="card-badge badge-series">Series</span>
             <div class="card-footer">
                 <span class="card-title">📺 Homeland S1</span>
+                <div class="card-arrow">›</div>
+            </div>
+        </div>
+
+        <!-- ── PERSON OF INTEREST S1 ── -->
+        <div class="photo-card" data-category="series" data-series="person-of-interest" style="animation-delay:.06s">
+            <div class="img-wrap" style="position:relative;height:270px;overflow:hidden;background:linear-gradient(145deg,#0a0f1f 0%,#132744 35%,#1e3a5f 65%,#0a0f1f 100%);display:flex;align-items:center;justify-content:center">
+                <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,transparent,transparent 28px,rgba(56,132,255,0.05) 28px,rgba(56,132,255,0.05) 29px),repeating-linear-gradient(0deg,transparent,transparent 28px,rgba(56,132,255,0.05) 28px,rgba(56,132,255,0.05) 29px);pointer-events:none"></div>
+                <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 35%,rgba(56,132,255,0.20) 0%,transparent 62%);pointer-events:none"></div>
+                <div style="position:absolute;top:14px;right:14px;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,0.35);text-transform:uppercase;font-weight:700">2011</div>
+                <div style="position:relative;z-index:1;text-align:center;color:#fff;padding:20px">
+                    <div style="font-size:50px;margin-bottom:6px;filter:drop-shadow(0 4px 12px rgba(56,132,255,0.45))">🕵️</div>
+                    <div style="font-size:9px;letter-spacing:5px;text-transform:uppercase;color:rgba(125,180,255,0.55);margin-bottom:12px">SPY · THRILLER · DRAMA</div>
+                    <div style="font-size:24px;font-weight:900;letter-spacing:3px;text-transform:uppercase;background:linear-gradient(135deg,#dbeafe,#7db4ff,#3884ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.05;filter:drop-shadow(0 0 18px rgba(56,132,255,0.4))">PERSON OF<br>INTEREST</div>
+                    <div style="font-size:11px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:rgba(125,180,255,0.75);margin-top:6px">SEASON 1</div>
+                    <div style="width:60px;height:2px;background:linear-gradient(90deg,transparent,#3884ff,transparent);margin:14px auto;border-radius:2px"></div>
+                    <div style="display:inline-flex;align-items:center;gap:6px;padding:5px 16px;border:1px solid rgba(56,132,255,0.4);border-radius:50px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(155,198,255,0.85)">
+                        <span style="width:6px;height:6px;border-radius:50%;background:#3884ff;display:inline-block"></span>EP 3–16 · pCloud
+                    </div>
+                </div>
+            </div>
+            <div class="card-overlay">
+                <div class="card-overlay-icon">▶️</div>
+            </div>
+            <span class="card-badge badge-series">Series</span>
+            <div class="card-footer">
+                <span class="card-title">🕵️ Person Of Interest S1</span>
                 <div class="card-arrow">›</div>
             </div>
         </div>
@@ -1109,43 +1309,59 @@
 </footer>
 
 <!-- ══════════ MODAL ══════════ -->
-<div class="modal" id="imageModal" onclick="if(event.target===this)closeModal()">
+<div class="modal" id="imageModal" role="dialog" aria-modal="true" aria-label="Pemutar media"
+     onclick="if(event.target===this)closeModal()">
 
     <!-- Top bar -->
     <div class="modal-topbar" style="position:fixed;top:18px;left:50%;transform:translateX(-50%);width:calc(100% - 56px);max-width:900px;display:flex;align-items:center;justify-content:space-between;z-index:1002">
-        <div class="modal-counter" id="modalCounter">1 / 1</div>
-        <button class="modal-close" onclick="closeModal()">✕</button>
+        <div class="modal-counter" id="modalCounter" aria-live="polite">1 / 1</div>
+        <button type="button" class="modal-close" onclick="closeModal()" aria-label="Tutup pemutar">✕</button>
     </div>
 
-    <button class="modal-nav modal-prev" onclick="prevImage(event)">‹</button>
+    <button type="button" class="modal-nav modal-prev" onclick="prevImage(event)" aria-label="Item sebelumnya">‹</button>
 
     <div class="modal-box">
-        <div id="modalImageWrap">
+        <div id="modalImageWrap" style="position:relative">
             <img id="modalImage" src="" alt="Preview" style="display:block">
-            <video id="modalVideo" controls muted preload="auto" style="display:none;max-width:88vw;max-height:82vh;border-radius:16px">
+            <video id="modalVideo" controls preload="metadata" playsinline
+                   aria-label="Pemutar video"
+                   style="display:none;max-width:88vw;max-height:82vh;border-radius:16px">
                 <source id="modalVideoSource" src="" type="video/mp4">
+                Browser Anda tidak mendukung pemutaran video.
             </video>
-            <iframe id="modalIframe" src="" allowfullscreen allow="autoplay; encrypted-media" style="display:none;width:88vw;max-width:960px;height:75vh;border:none;border-radius:16px;background:#000"></iframe>
+            <iframe id="modalIframe" src="" title="Pemutar video eksternal" allowfullscreen
+                    allow="autoplay; encrypted-media" style="display:none;width:88vw;max-width:960px;height:75vh;border:none;border-radius:16px;background:#000"></iframe>
+            <div class="media-fallback" id="mediaFallback" role="alert">
+                <span aria-hidden="true">⚠️</span>
+                <span>Video tidak dapat dimuat. Periksa koneksi Anda lalu coba lagi.</span>
+                <button type="button" onclick="retryMedia()">Coba Lagi</button>
+            </div>
         </div>
         <div class="modal-caption" id="modalCaption"></div>
     </div>
 
-    <button class="modal-nav modal-next" onclick="nextImage(event)">›</button>
+    <button type="button" class="modal-nav modal-next" onclick="nextImage(event)" aria-label="Item berikutnya">›</button>
 
     <!-- Episode Picker -->
     <div class="ep-picker" id="epPicker">
-        <button class="ep-close" onclick="closeEP()">✕</button>
+        <button type="button" class="ep-close" onclick="closeEP()" aria-label="Tutup pemilih episode">✕</button>
         <div class="ep-picker-header">
             <h2 id="epTitle">📺 HOMELAND SEASON 1</h2>
             <p id="epSubtitle">Pilih episode untuk ditonton</p>
+            <a id="epSourceLink" class="ep-source" href="#" target="_blank" rel="noopener noreferrer" hidden>📁 Buka folder publik pCloud</a>
         </div>
         <div class="season-tabs" id="seasonTabs"></div>
         <div class="ep-grid" id="epGrid"></div>
         <div class="player-container" id="playerContainer">
-            <video id="epVideo" controls preload="metadata">
+            <video id="epVideo" controls preload="metadata" playsinline aria-label="Pemutar episode">
                 <source id="epVideoSrc" src="" type="video/mp4">
+                Browser Anda tidak mendukung pemutaran video.
             </video>
-            <iframe id="epIframe" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+            <iframe id="epIframe" src="" title="Pemutar episode eksternal" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+            <div class="media-fallback" id="epFallback" role="alert">
+                <span aria-hidden="true">⚠️</span>
+                <span>Episode tidak dapat dimuat. Coba lagi nanti.</span>
+            </div>
         </div>
     </div>
 </div>
@@ -1211,6 +1427,29 @@ var seriesData = {
                 { ep:12, title:"Episode 12",     src:"" }
             ]
         }
+    },
+    "person-of-interest": {
+        title: "🕵️ PERSON OF INTEREST S1",
+        subtitle: "Spy Thriller · Episode 3–16",
+        source: "https://u.pcloud.link/publink/show?code=kZXG74JZKIaIhxWabnQqARBpkgUGKkJD3taX",
+        seasons: {
+            1: [
+                { ep:3,  title:"Episode 3",     src:"https://u.pcloud.link/publink/show?code=XZbG74JZ8lDE18egYp7c2T94KXsSlpLBwOAk" },
+                { ep:4,  title:"Episode 4",     src:"https://u.pcloud.link/publink/show?code=XZhG74JZG7oHLKm33jp703fOyLg0vkUI1xty" },
+                { ep:5,  title:"Episode 5",     src:"https://u.pcloud.link/publink/show?code=XZSG74JZSVCH2PwV2hpsxpgoSmVzw4qy2WJV" },
+                { ep:6,  title:"Episode 6",     src:"https://u.pcloud.link/publink/show?code=XZjG74JZsIyIz5WOwXFakNPPrDlMbkisMAPX" },
+                { ep:7,  title:"Episode 7",     src:"https://u.pcloud.link/publink/show?code=XZuG74JZIyP28qRusCJs1Kkih4E6AzF63Jw7" },
+                { ep:8,  title:"Episode 8",     src:"https://u.pcloud.link/publink/show?code=XZfG74JZjr5CXyW2iNhT9gb7tg3RjRNVzC7X" },
+                { ep:9,  title:"Episode 9",     src:"https://u.pcloud.link/publink/show?code=XZBG74JZe0d0glolO5RhYx47xSosOjwDjPWy" },
+                { ep:10,  title:"Episode 10",     src:"https://u.pcloud.link/publink/show?code=XZ2G74JZ3aC5Bt17LybV3CSkWbWelFYIdfby" },
+                { ep:11,  title:"Episode 11",     src:"https://u.pcloud.link/publink/show?code=XZWG74JZdJujtp224PjW6GWxX9T4IyVTJ4Dy" },
+                { ep:12,  title:"Episode 12",     src:"https://u.pcloud.link/publink/show?code=XZKjnLJZPGYE4QrpE2pq0Wfz3r3FlbibuP8X" },
+                { ep:13,  title:"Episode 13",     src:"https://u.pcloud.link/publink/show?code=XZsG74JZqWuDfC8MEdb7uzWwW1XDEXGEmdUy" },
+                { ep:14,  title:"Episode 14",     src:"https://u.pcloud.link/publink/show?code=XZDG74JZtuVK5VJzo8QQan6B1JBNCuwPN2hk" },
+                { ep:15,  title:"Episode 15",     src:"https://u.pcloud.link/publink/show?code=XZ1G74JZbBwBLYSVDLH3rhqGTHdVtzfKyn0k" },
+                { ep:16,  title:"Episode 16",     src:"https://u.pcloud.link/publink/show?code=XZeG74JZMjY9DTi8hSbRAXqboSe7AHGdQMu7" }
+            ]
+        }
     }
 };
 
@@ -1221,9 +1460,16 @@ var filterGeneration=0;  /* race-condition guard */
 function openSeries(id) {
     curSeries = id;
     curSeason = 1;
+    lastFocused = document.activeElement;
     var d = seriesData[id];
     document.getElementById('epTitle').textContent    = d.title;
     document.getElementById('epSubtitle').textContent = d.subtitle;
+    /* Tautkan series ke public link folder pCloud (bila tersedia & terverifikasi) */
+    var sl = document.getElementById('epSourceLink');
+    if (sl) {
+        if (d.source) { sl.href = d.source; sl.hidden = false; }
+        else { sl.hidden = true; sl.removeAttribute('href'); }
+    }
     renderSeasons();
     renderEpisodes(curSeason);
     document.querySelector('.modal-box').style.display  = 'none';
@@ -1231,6 +1477,7 @@ function openSeries(id) {
     var modal = document.getElementById('imageModal');
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
+    (document.querySelector('.ep-close') || modal).focus();
 }
 
 function renderSeasons() {
@@ -1255,20 +1502,30 @@ function renderEpisodes(s) {
     g.innerHTML = '';
     eps.forEach(function(e){
         var lock = !e.src ? '<span style="font-size:9px;opacity:.45;display:block;margin-top:3px">🔒 Segera</span>' : '';
-        g.innerHTML += '<div class="ep-card'+(e.src?'':' locked')+'" onclick="'+(e.src?'playEP('+e.ep+',this)':'')+'"><span class="ep-num">EP '+e.ep+'</span><span class="ep-title">'+e.title+'</span>'+lock+'</div>';
+        var dis = e.src ? '' : ' aria-disabled="true"';
+        g.innerHTML += '<button type="button" class="ep-card'+(e.src?'':' locked')+'"'+dis+
+            ' onclick="'+(e.src?'playEP('+e.ep+',this)':'void(0)')+'">'+
+            '<span class="ep-num">EP '+e.ep+'</span><span class="ep-title">'+e.title+'</span>'+lock+'</button>';
     });
 }
 
 function playEP(ep, el) {
+    if (el.classList.contains('locked')) return;   /* episode belum tersedia */
     document.querySelectorAll('.ep-card').forEach(function(c){ c.classList.remove('playing'); });
     el.classList.add('playing');
     var found = seriesData[curSeries].seasons[curSeason].find(function(e){ return e.ep==ep; });
     var vid = document.getElementById('epVideo'), src = document.getElementById('epVideoSrc'),
         iframe = document.getElementById('epIframe'), container = document.getElementById('playerContainer');
+    hideMediaFallback('epFallback');
     if (found && found.src) {
         container.style.display = 'block';
-        if (found.src.includes('/embed/')) {
+        /* Rute: embed (mega dkk), halaman publink pCloud, atau video langsung */
+        var useIframe = found.src.includes('/embed/') ||
+                        found.src.includes('publink/show') ||
+                        found.src.includes('pcloud.link');
+        if (useIframe) {
             vid.style.display = 'none';
+            vid.pause && vid.pause();
             iframe.style.display = 'block';
             iframe.src = found.src;
             container.scrollIntoView({ behavior:'smooth', block:'nearest' });
@@ -1278,7 +1535,9 @@ function playEP(ep, el) {
             src.src = found.src;
             vid.style.display = 'block';
             vid.load();
-            vid.play().catch(function(){});
+            /* Putar hanya dari gestur user (klik/Enter pada episode) */
+            var pr = vid.play();
+            if (pr && pr.catch) pr.catch(function(){ /* kontrol tetap tersedia bila autoplay diblokir */ });
             container.scrollIntoView({ behavior:'smooth', block:'nearest' });
         }
     }
@@ -1305,8 +1564,12 @@ function getVisible() {
 function filterGallery(cat, btn) {
     currentFilter = cat;
     var gen = ++filterGeneration;  /* capture generation for race guard */
-    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    document.querySelectorAll('.filter-btn').forEach(function(b){
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed','false');
+    });
     btn.classList.add('active');
+    btn.setAttribute('aria-pressed','true');
     var items = document.querySelectorAll('.photo-card:not(.empty-state)');
     var count = 0;
     var matchItems = [];
@@ -1363,8 +1626,36 @@ function filterGallery(cat, btn) {
 }
 
 /* ─── Modal ─── */
+var lastFocused = null;   /* elemen yang dipanggil modal — untuk restore fokus */
+
+function isModalOpen() {
+    return document.getElementById('imageModal').style.display === 'flex';
+}
+function isEpPickerOpen() {
+    return document.getElementById('epPicker').classList.contains('show');
+}
+
+function showMediaFallback(which) {
+    var el = document.getElementById(which || 'mediaFallback');
+    if (el) el.classList.add('show');
+}
+function hideMediaFallback(which) {
+    var el = document.getElementById(which || 'mediaFallback');
+    if (el) el.classList.remove('show');
+}
+function retryMedia() {
+    hideMediaFallback('mediaFallback');
+    var vid = document.getElementById('modalVideo');
+    if (vid && vid.style.display !== 'none') { vid.load(); vid.play().catch(function(){}); }
+}
+function showEpFallback() {
+    var el = document.getElementById('epFallback');
+    if (el) el.classList.add('show');
+}
+
 function openModal(el) {
     var card = el.closest ? el.closest('.photo-card') : el;
+    lastFocused = document.activeElement;
     visibleItems = getVisible();
     currentIndex = visibleItems.indexOf(card);
     if (currentIndex===-1) { visibleItems=Array.from(document.querySelectorAll('.photo-card')); currentIndex=visibleItems.indexOf(card); }
@@ -1376,6 +1667,9 @@ function openModal(el) {
     void box.offsetHeight;
     box.style.animation = 'modalIn .38s cubic-bezier(.34,1.56,.64,1) both';
     updateModal();
+    /* Fokus awal di dalam dialog jatuh ke elemen actionable (tombol tutup) */
+    var closeBtn = modal.querySelector('.modal-close');
+    if (closeBtn) closeBtn.focus();
 }
 
 function updateModal() {
@@ -1394,16 +1688,21 @@ function updateModal() {
 
     if (isFilm && iframeSrc) {
         /* Film with iframe (e.g. pCloud link) */
+        hideMediaFallback();
         modalIframe.src = iframeSrc;
         modalIframe.style.display = 'block';
         document.getElementById('modalCaption').textContent = '🎬 '+cur.querySelector('.card-title').textContent;
     } else if (isFilm) {
-        /* Film with direct video */
-        modalVid.style.display='block'; modalVid.muted=true;
+        /* Film with direct video — putar hanya dari gestur user; tanpa mute-paksa */
+        hideMediaFallback();
+        modalVid.style.display='block';
         var vidEl = cur.querySelector('video'), vidSrc = vidEl ? vidEl.getAttribute('src') : '';
         if (vidSrc) {
             modalVidSrc.src = vidSrc; modalVid.load();
-            modalVid.play().catch(function(){ setTimeout(function(){ modalVid.play().catch(function(){}); }, 500); });
+            var pr = modalVid.play();
+            if (pr && pr.catch) pr.catch(function(){ /* kontrol tetap tersedia bila diblokir */ });
+        } else {
+            showMediaFallback();
         }
         document.getElementById('modalCaption').textContent = '🎬 '+cur.querySelector('.card-title').textContent;
     } else {
@@ -1421,10 +1720,16 @@ function closeModal() {
         iframe = document.getElementById('modalIframe');
     vid.pause(); vid.currentTime=0;
     iframe.src = '';  /* stop iframe playback */
+    hideMediaFallback();
     modal.classList.add('blur-out');
     setTimeout(function(){
         modal.style.display='none'; modal.classList.remove('blur-out');
         document.body.style.overflow='';
+        /* Kembalikan fokus ke kartu asal (wajib untuk remote & keyboard) */
+        if (lastFocused && document.contains(lastFocused)) {
+            try { lastFocused.focus(); } catch(err){}
+        }
+        lastFocused = null;
     }, 300);
 }
 
@@ -1478,14 +1783,106 @@ document.querySelectorAll('.photo-card').forEach(function(c){
         if (this.dataset.series) { openSeries(this.dataset.series); return; }
         openModal(this);
     });
+    /* A11y untuk remote/keyboard: kartu = tombol yang bisa difokus */
+    c.setAttribute('role', 'button');
+    c.setAttribute('tabindex', '0');
+    var t = c.querySelector('.card-title');
+    if (t) c.setAttribute('aria-label', 'Buka ' + t.textContent.trim());
+    c.setAttribute('aria-haspopup', 'dialog');
 });
 
+/* Fallback bila video utama / episode gagal dimuat */
+(function(){
+    var mv = document.getElementById('modalVideo');
+    if (mv) mv.addEventListener('error', function(){ showMediaFallback(); }, true);
+    var ev = document.getElementById('epVideo');
+    if (ev) ev.addEventListener('error', function(){ showEpFallback(); }, true);
+    var ms = document.getElementById('modalVideoSource');
+    if (ms) ms.addEventListener('error', function(){ showMediaFallback(); });
+    var es = document.getElementById('epVideoSrc');
+    if (es) es.addEventListener('error', function(){ showEpFallback(); });
+})();
+
 document.addEventListener('keydown', function(e){
-    var m=document.getElementById('imageModal');
-    if (m.style.display!=='flex') return;
-    if (e.key==='Escape') closeModal();
-    if (e.key==='ArrowLeft')  slideTo((currentIndex-1+visibleItems.length)%visibleItems.length,'prev');
-    if (e.key==='ArrowRight') slideTo((currentIndex+1)%visibleItems.length,'next');
+    var m = document.getElementById('imageModal');
+    var modalOpen = m.style.display === 'flex';
+
+    /* ── Tutup modal: Esc / Backspace / tombol Back remote TV ── */
+    if (modalOpen && (e.key === 'Escape' || e.key === 'BrowserBack' ||
+        (e.key === 'Backspace' && !(e.target.closest && e.target.closest('input,textarea'))))) {
+        e.preventDefault();
+        if (isEpPickerOpen()) { closeEP(); } else { closeModal(); }
+        return;
+    }
+
+    /* ── Navigasi item saat modal terbuka (Prev/Next) ── */
+    if (modalOpen && !isEpPickerOpen()) {
+        if (e.key === 'ArrowLeft')  { e.preventDefault(); slideTo((currentIndex-1+visibleItems.length)%visibleItems.length,'prev'); return; }
+        if (e.key === 'ArrowRight') { e.preventDefault(); slideTo((currentIndex+1)%visibleItems.length,'next'); return; }
+    }
+
+    /* ── Focus trap di dalam modal (Tab / Shift+Tab) ── */
+    if (modalOpen && e.key === 'Tab') {
+        var f = Array.prototype.filter.call(
+            m.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"]), video, iframe'),
+            function(el){ return el.offsetParent !== null && !el.disabled; });
+        if (!f.length) return;
+        var first = f[0], last = f[f.length-1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        else if (!m.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+        return;
+    }
+    if (modalOpen) return;
+
+    /* ── D-pad / keyboard di katalog: navigasi spasial ── */
+    if (['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].indexOf(e.key) !== -1) {
+        var sel = '.filter-btn, .theme-btn, .photo-card:not(.hidden):not(.filter-out), .skip-link';
+        var nodes = Array.prototype.filter.call(document.querySelectorAll(sel), function(el){
+            return el.offsetParent !== null;
+        });
+        if (!nodes.length) return;
+        var active = document.activeElement;
+        if (!active || active === document.body || nodes.indexOf(active) === -1) {
+            /* Fokus awal: jatuh ke elemen actionable pertama (filter) */
+            e.preventDefault();
+            (document.querySelector('.filter-btn') || nodes[0]).focus();
+            return;
+        }
+        if (nodes.indexOf(active) === -1) return;
+
+        var dir = e.key;
+        var ar = active.getBoundingClientRect();
+        var ax = ar.left + ar.width/2, ay = ar.top + ar.height/2;
+        var best = null, bestScore = Infinity;
+        nodes.forEach(function(n){
+            if (n === active) return;
+            var r = n.getBoundingClientRect();
+            var cx = r.left + r.width/2, cy = r.top + r.height/2;
+            var dx = cx - ax, dy = cy - ay;
+            var ok =
+                (dir === 'ArrowLeft'  && dx < -4) ||
+                (dir === 'ArrowRight' && dx >  4) ||
+                (dir === 'ArrowUp'    && dy < -4) ||
+                (dir === 'ArrowDown'  && dy >  4);
+            if (!ok) return;
+            var along = (dir === 'ArrowLeft' || dir === 'ArrowRight') ? Math.abs(dx) : Math.abs(dy);
+            var cross = (dir === 'ArrowLeft' || dir === 'ArrowRight') ? Math.abs(dy) : Math.abs(dx);
+            var score = along + cross * 2.2;   /* utamakan searah, dekat secara silang */
+            if (score < bestScore) { bestScore = score; best = n; }
+        });
+        if (best) { e.preventDefault(); best.focus(); }
+        return;
+    }
+
+    /* ── Enter / Space membuka kartu (kartu = role=button, bukan <button>) ── */
+    if ((e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar')) {
+        var a = document.activeElement;
+        if (a && a.classList && a.classList.contains('photo-card')) {
+            e.preventDefault();
+            a.click();
+        }
+    }
 });
 
 /* Blur iframe on modal click so ESC/arrows work again */
@@ -1511,5 +1908,5 @@ document.querySelectorAll('.photo-card').forEach(function(c,i){
     c.style.animationDelay=(i%8)*0.04+'s';
 });
 </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0eaa05c6b7cc6e5',t:'MTc4MTk1Njk2NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0fc07a2a9c49f8f',t:'MTc4MjEzOTQ1Mw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3fe21679e803fd5',t:'MTc5MDIxNDU0NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
             </html>
