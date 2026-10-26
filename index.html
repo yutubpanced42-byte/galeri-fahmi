@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="GaleriFahmi: a Neo-Brutalist gallery for 28 Hannapunzel photos served through verified Aceimg CDN links.">
-<title>GaleriFahmi — Hannapunzel Photo Collection</title>
+<meta name="description" content="GaleriFahmi: a Neo-Brutalist gallery with Hannapunzel photos and miamiaof photos and videos served through verified Aceimg CDN links.">
+<title>GaleriFahmi — Photo Collection</title>
 <style>
 /* ============ NEO-BRUTALIST DESIGN TOKENS ============ */
 :root{
@@ -38,38 +38,32 @@ button{color:inherit}a{color:inherit}button{cursor:pointer}
 .nav-pill:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--border)}
 .nav-pill:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--border)}
 /* ============ HERO ============ */
-.hero{padding:48px 0 30px}.hero-grid{display:grid;grid-template-columns:1.35fr .8fr;gap:28px;align-items:stretch}
+.hero{padding:48px 0 30px}.hero-grid{display:block}
 .hero-card{background:var(--paper);border:3px solid var(--border);box-shadow:var(--shadow-xl);padding:clamp(24px,4vw,40px);position:relative;overflow:hidden}
-.hero-card::after{content:'28';position:absolute;right:-12px;top:-35px;font-family:var(--font-mono);font-weight:900;font-size:180px;line-height:1;color:rgba(21,50,244,.055);pointer-events:none}
+.hero-card::after{content:'58';position:absolute;right:-12px;top:-35px;font-family:var(--font-mono);font-weight:900;font-size:180px;line-height:1;color:rgba(21,50,244,.055);pointer-events:none}
 .hero-badge{position:relative;z-index:1;display:inline-flex;align-items:center;gap:8px;background:var(--ice);border:2px solid var(--border);padding:7px 13px;font-family:var(--font-mono);font-size:11px;font-weight:800;box-shadow:3px 3px 0 var(--border);margin-bottom:22px}
 .pulse-dot{width:10px;height:10px;background:var(--green);border:2px solid var(--border);border-radius:50%}
 .hero-title{position:relative;z-index:1;font-family:var(--font-mono);font-weight:900;font-size:clamp(36px,5.6vw,66px);line-height:1.02;letter-spacing:-3px;margin-bottom:18px}
 .hero-title .accent{color:var(--blue)}
 .hero-title .strike{background:var(--yellow);padding:1px 9px;border:3px solid var(--border);display:inline-block;transform:rotate(-1deg);box-shadow:4px 4px 0 var(--border)}
-.hero-copy{position:relative;z-index:1;max-width:650px;font-size:16px;line-height:1.65;color:#334155;margin-bottom:23px}
-.hero-ctas{position:relative;z-index:1;display:flex;gap:13px;flex-wrap:wrap;margin-bottom:25px}
+.hero-ctas{position:relative;z-index:1;display:flex;gap:13px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--font-mono);font-weight:800;font-size:13px;padding:13px 18px;border:3px solid var(--border);box-shadow:var(--shadow);text-decoration:none;transition:transform .1s,box-shadow .1s;background:var(--paper)}
 .btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--border)}.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--border)}
 .btn-primary{background:var(--blue);color:#fff}.btn-yellow{background:var(--yellow)}.btn-coral{background:var(--coral);color:#fff}
-.hero-stats{position:relative;z-index:1;display:flex;gap:10px;flex-wrap:wrap}.hero-stat{border:2px solid var(--border);background:var(--bg);padding:9px 11px;min-width:104px}.hero-stat strong{display:block;font-family:var(--font-mono);font-size:18px}.hero-stat span{font-size:10px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;color:#475569}
-.hero-feature{background:var(--text);color:#fff;border:3px solid var(--border);box-shadow:var(--shadow-xl);padding:22px;display:flex;flex-direction:column;gap:15px}
-.feature-heading{font-family:var(--font-mono);font-size:13px;color:var(--yellow);letter-spacing:1px;margin-bottom:2px}
-.feature-item{border:2px solid #fff;background:var(--blue);box-shadow:4px 4px 0 var(--yellow);padding:16px;display:grid;grid-template-columns:43px 1fr;gap:13px;align-items:start}
-.feature-item:nth-child(3){background:var(--coral);box-shadow:4px 4px 0 var(--sky)}.feature-item:nth-child(4){background:var(--purple);box-shadow:4px 4px 0 var(--green)}
-.feature-icon{width:43px;height:43px;background:var(--yellow);color:var(--text);border:2px solid var(--border);display:grid;place-items:center;font-size:21px;font-weight:900}
-.feature-text strong{display:block;font-family:var(--font-mono);font-size:13px;margin-bottom:5px}.feature-text span{font-size:12px;line-height:1.45;color:#F8FAFC}
 /* ============ CONTROLS ============ */
-.control-panel{background:var(--yellow);border:3px solid var(--border);box-shadow:var(--shadow-lg);padding:18px;display:grid;grid-template-columns:minmax(220px,1.35fr) auto auto;gap:18px;align-items:end;margin-bottom:34px}
-.control-label,.search-label{display:block;font-family:var(--font-mono);font-size:11px;font-weight:900;letter-spacing:.8px;text-transform:uppercase;margin-bottom:8px}
-.search-wrap input{width:100%;border:3px solid var(--border);background:var(--paper);padding:12px 14px;box-shadow:3px 3px 0 var(--border);font-size:13px;font-weight:650}
-.search-wrap input::placeholder{color:#64748B}
-.filter-group{display:flex;gap:7px;flex-wrap:wrap}.filter-btn{border:2px solid var(--border);background:var(--paper);padding:9px 11px;font-family:var(--font-mono);font-size:11px;font-weight:800;box-shadow:2px 2px 0 var(--border)}
+.control-panel{background:var(--yellow);border:3px solid var(--border);box-shadow:var(--shadow-lg);padding:18px;margin-bottom:34px}
+.category-row{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.category-row .control-label{margin-bottom:0}.category-group{display:flex;gap:9px;flex-wrap:wrap}
+.category-btn{display:inline-flex;align-items:center;gap:12px;padding:10px 14px;font-size:12px}
+.category-count{display:inline-grid;place-items:center;min-width:29px;height:25px;padding:0 6px;border:2px solid var(--border);background:var(--yellow);color:var(--text);font-size:10px}
+.category-btn[aria-pressed="true"] .category-count{background:var(--green);color:var(--text)}
+.btn:disabled,.nav-pill:disabled{opacity:.45;cursor:not-allowed}.btn:disabled:hover,.nav-pill:disabled:hover{transform:none}.btn:disabled:hover{box-shadow:var(--shadow)}.nav-pill:disabled:hover{box-shadow:3px 3px 0 var(--border)}
+.control-label{display:block;font-family:var(--font-mono);font-size:11px;font-weight:900;letter-spacing:.8px;text-transform:uppercase;margin-bottom:8px}
+.filter-btn{border:2px solid var(--border);background:var(--paper);padding:9px 11px;font-family:var(--font-mono);font-size:11px;font-weight:800;box-shadow:2px 2px 0 var(--border)}
 .filter-btn[aria-pressed="true"]{background:var(--blue);color:#fff;transform:translate(1px,1px);box-shadow:1px 1px 0 var(--border)}
-.sort-wrap select{border:3px solid var(--border);background:var(--paper);padding:11px 34px 11px 11px;box-shadow:3px 3px 0 var(--border);font-family:var(--font-mono);font-size:11px;font-weight:800;max-width:170px}
 .section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
 .section-title{display:flex;align-items:center;gap:11px;font-family:var(--font-mono);font-size:clamp(21px,3vw,30px);font-weight:900;letter-spacing:-1px}.section-title .bar{width:9px;height:30px;background:var(--blue);border:2px solid var(--border)}
 .result-count{margin-top:5px;font-family:var(--font-mono);font-size:11px;font-weight:700;color:#475569}
-.reset-btn{border:2px solid var(--border);background:var(--paper);box-shadow:3px 3px 0 var(--border);padding:9px 13px;font-family:var(--font-mono);font-size:11px;font-weight:800}.reset-btn:hover{background:var(--ice)}
 /* ============ PHOTO GRID ============ */
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:23px;margin-bottom:46px}
 .photo-card{--accent:var(--yellow);background:var(--paper);border:3px solid var(--border);box-shadow:var(--shadow);min-width:0;transition:transform .12s,box-shadow .12s}
@@ -79,6 +73,8 @@ button{color:inherit}a{color:inherit}button{cursor:pointer}
 .photo-frame{position:relative;aspect-ratio:4/4.7;background:var(--accent);border-bottom:3px solid var(--border);overflow:hidden}
 .photo-frame::after{content:'';position:absolute;inset:0;border:0 solid var(--accent);pointer-events:none;transition:border-width .12s}.photo-card:hover .photo-frame::after{border-width:7px}
 .photo-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .2s}.photo-card:hover .photo-frame img{transform:scale(1.025)}
+.photo-frame video{width:100%;height:100%;object-fit:contain;display:block;background:#050505}
+.video-card .orientation-badge{top:9px;bottom:auto}.video-open,.video-fullscreen{width:100%;margin-top:12px;padding:10px 12px;font-size:10px}.video-fullscreen{margin-top:9px}
 .index-badge{position:absolute;left:10px;top:10px;background:var(--accent);border:2px solid var(--border);box-shadow:2px 2px 0 var(--border);min-width:39px;height:32px;display:grid;place-items:center;padding:0 6px;font-family:var(--font-mono);font-size:12px;font-weight:900}
 .orientation-badge{position:absolute;right:9px;bottom:9px;background:var(--paper);border:2px solid var(--border);padding:4px 6px;font-family:var(--font-mono);font-size:9px;font-weight:900;box-shadow:2px 2px 0 var(--border)}
 .photo-info{padding:14px 14px 13px}.photo-title-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:7px}.photo-title{font-family:var(--font-mono);font-size:15px;font-weight:900}.photo-dot{width:13px;height:13px;flex:0 0 13px;background:var(--accent);border:2px solid var(--border)}
@@ -90,23 +86,23 @@ button{color:inherit}a{color:inherit}button{cursor:pointer}
 .lightbox-top{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--yellow);border-bottom:3px solid var(--border);padding:10px 13px}.lightbox-count{font-family:var(--font-mono);font-size:12px;font-weight:900}
 .icon-btn{width:39px;height:39px;display:grid;place-items:center;background:var(--paper);border:2px solid var(--border);box-shadow:2px 2px 0 var(--border);font-family:var(--font-mono);font-size:19px;font-weight:900}.icon-btn:hover{background:var(--ice)}
 .lightbox-body{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;background:var(--text);padding:16px}
-.lightbox-figure{min-width:0;display:grid;place-items:center}.lightbox-figure img{display:block;max-width:100%;max-height:67vh;width:auto;height:auto;border:3px solid #fff;box-shadow:5px 5px 0 var(--sky);background:#fff}
+.lightbox-figure{min-width:0;display:grid;place-items:center}.lightbox-figure img,.lightbox-figure video{display:block;max-width:100%;max-height:67vh;width:auto;height:auto;border:3px solid #fff;box-shadow:5px 5px 0 var(--sky);background:#fff}.lightbox-figure video{background:#000}
 .lightbox-nav{width:46px;height:54px;background:var(--yellow);border:3px solid var(--border);box-shadow:3px 3px 0 #fff;font-family:var(--font-mono);font-size:24px;font-weight:900}.lightbox-nav:hover{background:var(--sky)}
-.lightbox-info{padding:15px 17px;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.lightbox-title{font-family:var(--font-mono);font-size:17px;font-weight:900;margin-bottom:5px}.lightbox-meta{font-family:var(--font-mono);font-size:10px;color:#526075;line-height:1.55;word-break:break-word}.download-btn{background:var(--green);white-space:nowrap}.lightbox-actions{display:flex;align-items:center;gap:11px;flex-wrap:wrap}.copy-btn{background:var(--sky);white-space:nowrap}
+.lightbox-info{padding:15px 17px;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.lightbox-title{font-family:var(--font-mono);font-size:17px;font-weight:900;margin-bottom:5px}.lightbox-meta{font-family:var(--font-mono);font-size:10px;color:#526075;line-height:1.55;word-break:break-word}.download-btn{background:var(--green);white-space:nowrap}.lightbox-actions{display:flex;align-items:center;gap:11px;flex-wrap:wrap}.copy-btn{background:var(--sky);white-space:nowrap}.fullscreen-btn{background:var(--coral);color:#fff;white-space:nowrap}
+.lightbox.full-view{padding:0;background:#000}.lightbox.full-view .lightbox-shell{width:100%;height:100%;max-height:none;border:0;box-shadow:none;display:flex;flex-direction:column;overflow:hidden}.lightbox.full-view .lightbox-body{flex:1;min-height:0;padding:0}.lightbox.full-view .lightbox-figure{width:100%;height:100%}.lightbox.full-view .lightbox-figure video{width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;border:0;box-shadow:none}.lightbox.full-view .lightbox-info{display:none}
 /* ============ FOOTER ============ */
 .footer{background:var(--text);color:#fff;border-top:3px solid var(--border);padding:28px 0;margin-top:20px}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}.footer-brand{font-family:var(--font-mono);font-weight:900;font-size:17px}.footer-brand span{color:var(--yellow)}.footer-note{font-family:var(--font-mono);font-size:10px;line-height:1.6;color:#CBD5E1;text-align:right}
-@media(max-width:980px){.hero-grid{grid-template-columns:1fr}.control-panel{grid-template-columns:1fr}.sort-wrap select{max-width:none;width:100%}.hero-feature{display:grid;grid-template-columns:repeat(3,1fr)}.feature-heading{grid-column:1/-1}.feature-item{grid-template-columns:1fr}.feature-item:nth-child(3){box-shadow:4px 4px 0 var(--yellow)}}
-@media(max-width:650px){.container{width:min(100% - 24px,1320px)}.hero{padding-top:28px}.hero-card::after{font-size:120px}.hero-title{letter-spacing:-2px}.hero-feature{grid-template-columns:1fr}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.photo-info{padding:10px}.photo-title{font-size:12px}.photo-meta{font-size:8px}.photo-specs{font-size:8px;flex-direction:column;gap:2px}.orientation-badge{font-size:7px}.lightbox{padding:8px}.lightbox-shell{max-height:calc(100vh - 16px)}.lightbox-body{grid-template-columns:1fr;padding:10px}.lightbox-figure img{max-height:58vh}.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:2}.lightbox-nav.prev{left:17px}.lightbox-nav.next{right:17px}.footer-note{text-align:left}}
+@media(max-width:650px){.container{width:min(100% - 24px,1320px)}.category-row{align-items:flex-start;flex-direction:column}.category-group,.category-btn{width:100%}.category-btn{justify-content:space-between}.hero{padding-top:28px}.hero-card::after{font-size:120px}.hero-title{letter-spacing:-2px}.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.photo-info{padding:10px}.photo-title{font-size:12px}.photo-meta{font-size:8px}.photo-specs{font-size:8px;flex-direction:column;gap:2px}.orientation-badge{font-size:7px}.lightbox{padding:8px}.lightbox-shell{max-height:calc(100vh - 16px)}.lightbox-body{grid-template-columns:1fr;padding:10px}.lightbox-figure img,.lightbox-figure video{max-height:58vh}.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:2}.lightbox-nav.prev{left:17px}.lightbox-nav.next{right:17px}.footer-note{text-align:left}}
 @media(max-width:390px){.gallery-grid{grid-template-columns:1fr}.nav-tag{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 </style>
 </head>
 <body>
-<a class="skip-link" href="#gallery">Skip to the photo collection</a>
+<a class="skip-link" href="#categories">Skip to category selection</a>
 <header class="navbar">
   <div class="container nav-inner">
     <a class="logo" href="#top" aria-label="GaleriFahmi home"><span class="logo-mark">GF</span><span>Galeri<span class="logo-accent">Fahmi</span></span></a>
-    <div class="nav-right"><span class="nav-tag">28 PHOTOS · WEBP</span><button class="nav-pill" id="randomTop" type="button">SHUFFLE ↗</button></div>
+    <div class="nav-right"><span class="nav-tag">58 FILES · WEBP/MP4</span><button class="nav-pill" id="randomTop" type="button" disabled>SHUFFLE ↗</button></div>
   </div>
 </header>
 <main class="container" id="top">
@@ -115,85 +111,73 @@ button{color:inherit}a{color:inherit}button{cursor:pointer}
       <div class="hero-card">
         <span class="hero-badge"><span class="pulse-dot"></span>NEO-BRUTALIST EDITION</span>
         <h1 class="hero-title" id="hero-title">BOLD <span class="accent">FRAMES.</span><br><span class="strike">ZERO NOISE.</span></h1>
-        <p class="hero-copy">A loud, unapologetic home for 28 Hannapunzel photographs. Thick borders, hard shadows, instant search, and a full-screen viewer—all connected to verified direct Aceimg CDN links.</p>
-        <div class="hero-ctas"><a class="btn btn-primary" href="#gallery">BROWSE COLLECTION ↓</a><button class="btn btn-yellow" id="randomHero" type="button">RANDOM PHOTO ↗</button></div>
-        <div class="hero-stats" aria-label="Collection statistics">
-          <div class="hero-stat"><strong>28</strong><span>Photographs</span></div>
-          <div class="hero-stat"><strong>1000px</strong><span>Image width</span></div>
-          <div class="hero-stat"><strong>28 / 28</strong><span>CDN links verified</span></div>
-        </div>
+        <div class="hero-ctas"><a class="btn btn-primary" href="#categories">CHOOSE CATEGORY ↓</a><button class="btn btn-yellow" id="randomHero" type="button" disabled>RANDOM MEDIA ↗</button></div>
       </div>
-      <aside class="hero-feature" aria-label="Gallery features">
-        <h2 class="feature-heading">BUILT DIFFERENT / BUILT LOCAL</h2>
-        <div class="feature-item"><span class="feature-icon">⌕</span><div class="feature-text"><strong>FILTER THE NOISE</strong><span>Search by number, date, or original filename. Slice by portrait, landscape, or square.</span></div></div>
-        <div class="feature-item"><span class="feature-icon">↔</span><div class="feature-text"><strong>KEYBOARD FRIENDLY</strong><span>Open any frame, then use the arrow keys to move and Escape to return to the grid.</span></div></div>
-        <div class="feature-item"><span class="feature-icon">↗</span><div class="feature-text"><strong>DIRECT CDN LINKS</strong><span>Every photo uses a verified Aceimg CDN URL. Open a frame to copy its direct link or view the original WebP.</span></div></div>
-      </aside>
     </div>
   </section>
 
-  <section class="control-panel" aria-label="Gallery controls">
-    <div class="search-wrap"><label class="search-label" for="search">Find a frame</label><input id="search" type="search" placeholder="Try “04”, “2026-10”, or a filename…" autocomplete="off"></div>
-    <div><span class="control-label">Orientation</span><div class="filter-group" role="group" aria-label="Filter by orientation"><button class="filter-btn" type="button" data-filter="all" aria-pressed="true">ALL</button><button class="filter-btn" type="button" data-filter="portrait" aria-pressed="false">PORTRAIT</button><button class="filter-btn" type="button" data-filter="landscape" aria-pressed="false">LANDSCAPE</button><button class="filter-btn" type="button" data-filter="square" aria-pressed="false">SQUARE</button></div></div>
-    <div class="sort-wrap"><label class="control-label" for="sort">Sort collection</label><select id="sort"><option value="collection">Collection order</option><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="filename">Filename A–Z</option></select></div>
+  <section class="control-panel" id="categories" aria-label="Photo category">
+    <div class="category-row"><span class="control-label">Category</span><div class="category-group" role="group" aria-label="Choose a photo category"><button class="filter-btn category-btn" type="button" data-category="hannapunzel" aria-pressed="false" aria-controls="gallery"><span>Hannapunzel</span><span class="category-count" aria-label="28 photographs">28</span></button><button class="filter-btn category-btn" type="button" data-category="miamiaof" aria-pressed="false" aria-controls="gallery"><span>miamiaof</span><span class="category-count" aria-label="20 photos and 10 videos">30</span></button></div></div>
   </section>
 
-  <section class="section-head" aria-labelledby="collection-title"><div><h2 class="section-title" id="collection-title"><span class="bar"></span>THE COLLECTION</h2><p class="result-count" id="resultCount">28 / 28 FRAMES</p></div><button class="reset-btn" id="resetFilters" type="button">RESET FILTERS ×</button></section>
-  <section class="gallery-grid" id="gallery" aria-label="Hannapunzel photo collection" aria-live="polite"></section>
-  <div class="empty-state" id="emptyState" hidden><div class="empty-icon">?</div><h2>NO FRAMES FOUND</h2><p>Try a different search term or reset the orientation filter.</p></div>
+  <section class="section-head" aria-labelledby="collection-title"><div><h2 class="section-title" id="collection-title"><span class="bar"></span>THE COLLECTION</h2><p class="result-count" id="resultCount" aria-live="polite">SELECT A CATEGORY · 58 ITEMS READY</p></div></section>
+  <section class="gallery-grid" id="gallery" aria-label="Media collection" aria-live="polite"></section>
+  <div class="empty-state" id="emptyState"><div class="empty-icon" id="emptyIcon">01</div><h2 id="emptyTitle">SELECT A CATEGORY</h2><p id="emptyText">Choose Hannapunzel or miamiaof above to reveal its media.</p></div>
 </main>
-<footer class="footer"><div class="container footer-inner"><div class="footer-brand">Galeri<span>Fahmi</span> / 2026</div><div class="footer-note">NEO-BRUTALIST PHOTO COLLECTION<br>28 VERIFIED ACEIMG CDN LINKS · NO TRACKING SCRIPTS</div></div></footer>
+<footer class="footer"><div class="container footer-inner"><div class="footer-brand">Galeri<span>Fahmi</span> / 2026</div><div class="footer-note">NEO-BRUTALIST PHOTO COLLECTION<br>58 VERIFIED ACEIMG CDN LINKS · NO TRACKING SCRIPTS</div></div></footer>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" hidden>
   <div class="lightbox-shell">
     <div class="lightbox-top"><span class="lightbox-count" id="lightboxCount">01 / 28</span><button class="icon-btn" id="closeLightbox" type="button" aria-label="Close photo viewer">×</button></div>
     <div class="lightbox-body">
       <button class="lightbox-nav prev" id="previousPhoto" type="button" aria-label="Previous photo">←</button>
-      <figure class="lightbox-figure"><img id="lightboxImage" alt=""></figure>
+      <figure class="lightbox-figure"><img id="lightboxImage" alt=""><video id="lightboxVideo" controls playsinline preload="metadata" hidden></video></figure>
       <button class="lightbox-nav next" id="nextPhoto" type="button" aria-label="Next photo">→</button>
     </div>
-    <div class="lightbox-info"><div><h2 class="lightbox-title" id="lightboxTitle">Photo 01</h2><p class="lightbox-meta" id="lightboxMeta"></p></div><div class="lightbox-actions"><button class="btn copy-btn" id="copyDirectLink" type="button">COPY DIRECT LINK ⧉</button><a class="btn download-btn" id="downloadPhoto" href="#" target="_blank" rel="noopener">OPEN ORIGINAL ↗</a></div></div>
+    <div class="lightbox-info"><div><h2 class="lightbox-title" id="lightboxTitle">Photo 01</h2><p class="lightbox-meta" id="lightboxMeta"></p></div><div class="lightbox-actions"><button class="btn fullscreen-btn" id="fullscreenVideo" type="button" hidden>FULL SCREEN ⛶</button><button class="btn copy-btn" id="copyDirectLink" type="button">COPY DIRECT LINK ⧉</button><a class="btn download-btn" id="downloadPhoto" href="#" target="_blank" rel="noopener">OPEN ORIGINAL ↗</a></div></div>
   </div>
 </div>
 
 <script>
-const PHOTOS = [{"order":1,"source_order":2,"id":21136573,"title":"Photo 01","filename":"f119f354-5726-47a1-935e-d9cfcc2b7d7d_4132.webp","added":"2026-10-25T23:15:30.000Z","bytes":67534,"width":1000,"height":1804,"orientation":"portrait","src":"https://cdn.aceimg.com/k2sgnP7en.webp","cdn":"https://cdn.aceimg.com/k2sgnP7en.webp","viewer":"https://aceimg.com/upload/?f=k2sgnP7en.webp"},{"order":2,"source_order":27,"id":21114001,"title":"Photo 02","filename":"77a27420-a4c6-4f12-8ba5-b4e5ac40989d_3918.webp","added":"2026-10-24T21:06:25.000Z","bytes":67236,"width":1000,"height":1500,"orientation":"portrait","src":"https://cdn.aceimg.com/Y1XRuDeda.webp","cdn":"https://cdn.aceimg.com/Y1XRuDeda.webp","viewer":"https://aceimg.com/upload/?f=Y1XRuDeda.webp"},{"order":3,"source_order":37,"id":21090821,"title":"Photo 03","filename":"040f9f8c-f10d-4a06-bbdd-9a7df6ba44aa_c8490097-0b16-5571-95f5-1aab2b99a97b.webp","added":"2026-10-24T10:04:17.000Z","bytes":73452,"width":1000,"height":1000,"orientation":"square","src":"https://cdn.aceimg.com/tXVNcFvuC.webp","cdn":"https://cdn.aceimg.com/tXVNcFvuC.webp","viewer":"https://aceimg.com/upload/?f=tXVNcFvuC.webp"},{"order":4,"source_order":38,"id":21081719,"title":"Photo 04","filename":"96564669-c57d-4de5-bf9e-b4371d9d836a_hannapunzel_profile_pic.webp","added":"2026-10-24T00:31:20.000Z","bytes":43692,"width":1000,"height":960,"orientation":"landscape","src":"https://cdn.aceimg.com/ay6q5Aauv.webp","cdn":"https://cdn.aceimg.com/ay6q5Aauv.webp","viewer":"https://aceimg.com/upload/?f=ay6q5Aauv.webp"},{"order":5,"source_order":39,"id":21081716,"title":"Photo 05","filename":"da0143b4-4e8c-4f67-ade5-3cda943335b2_88996ff2-1e0c-5640-8813-960bbb12d6f4.webp","added":"2026-10-24T00:31:16.000Z","bytes":91420,"width":1000,"height":750,"orientation":"landscape","src":"https://cdn.aceimg.com/1EeZXxOji.webp","cdn":"https://cdn.aceimg.com/1EeZXxOji.webp","viewer":"https://aceimg.com/upload/?f=1EeZXxOji.webp"},{"order":6,"source_order":40,"id":21081700,"title":"Photo 06","filename":"519c86b8-fecf-486b-b8c5-d5a76d90f725_42e34d7a-d2c2-505c-bf8a-06b4f8da067d.webp","added":"2026-10-24T00:30:16.000Z","bytes":78168,"width":1000,"height":1000,"orientation":"square","src":"https://cdn.aceimg.com/ZxJS3lxtO.webp","cdn":"https://cdn.aceimg.com/ZxJS3lxtO.webp","viewer":"https://aceimg.com/upload/?f=ZxJS3lxtO.webp"},{"order":7,"source_order":41,"id":21081699,"title":"Photo 07","filename":"e281e249-cf80-4314-b8f2-55aab754a810_2f858f94-8414-5cec-a754-0e068e098518.webp","added":"2026-10-24T00:30:13.000Z","bytes":92144,"width":1000,"height":1238,"orientation":"portrait","src":"https://cdn.aceimg.com/1lP3d7CdJ.webp","cdn":"https://cdn.aceimg.com/1lP3d7CdJ.webp","viewer":"https://aceimg.com/upload/?f=1lP3d7CdJ.webp"},{"order":8,"source_order":42,"id":21081698,"title":"Photo 08","filename":"b1176e3d-721e-47a9-b336-0a51247c8941_94da04a2-fd93-5d38-9bcc-3ce93caeacac.webp","added":"2026-10-24T00:30:12.000Z","bytes":50140,"width":1000,"height":1454,"orientation":"portrait","src":"https://cdn.aceimg.com/6X5Rx59Td.webp","cdn":"https://cdn.aceimg.com/6X5Rx59Td.webp","viewer":"https://aceimg.com/upload/?f=6X5Rx59Td.webp"},{"order":9,"source_order":43,"id":21081675,"title":"Photo 09","filename":"cf4b3b55-bd67-4711-9044-a9a41aa5e023_kvsph24j.webp","added":"2026-10-24T00:29:18.000Z","bytes":100566,"width":1000,"height":1438,"orientation":"portrait","src":"https://cdn.aceimg.com/g2P53IFAw.webp","cdn":"https://cdn.aceimg.com/g2P53IFAw.webp","viewer":"https://aceimg.com/upload/?f=g2P53IFAw.webp"},{"order":10,"source_order":44,"id":21081645,"title":"Photo 10","filename":"c27f9249-6786-4db3-a9ea-e398c3cd8004_vdk3pb9j.webp","added":"2026-10-24T00:28:07.000Z","bytes":123682,"width":1000,"height":1511,"orientation":"portrait","src":"https://cdn.aceimg.com/ejZwbSxt5.webp","cdn":"https://cdn.aceimg.com/ejZwbSxt5.webp","viewer":"https://aceimg.com/upload/?f=ejZwbSxt5.webp"},{"order":11,"source_order":45,"id":21081611,"title":"Photo 11","filename":"e1458870-9abc-4baf-8aca-9c76e8d09e5e_images_34_.webp","added":"2026-10-24T00:26:40.000Z","bytes":37246,"width":1000,"height":561,"orientation":"landscape","src":"https://cdn.aceimg.com/VtlXiQ732.webp","cdn":"https://cdn.aceimg.com/VtlXiQ732.webp","viewer":"https://aceimg.com/upload/?f=VtlXiQ732.webp"},{"order":12,"source_order":46,"id":21081610,"title":"Photo 12","filename":"2ac741a5-07d9-4bc8-a6c5-105c3c870837_images_35_.webp","added":"2026-10-24T00:26:38.000Z","bytes":64784,"width":1000,"height":1781,"orientation":"portrait","src":"https://cdn.aceimg.com/1vM9LRZcq.webp","cdn":"https://cdn.aceimg.com/1vM9LRZcq.webp","viewer":"https://aceimg.com/upload/?f=1vM9LRZcq.webp"},{"order":13,"source_order":47,"id":21081609,"title":"Photo 13","filename":"f5722bdb-3843-4875-b013-81169b8bfcd9_images_36_.webp","added":"2026-10-24T00:26:36.000Z","bytes":31814,"width":1000,"height":1737,"orientation":"portrait","src":"https://cdn.aceimg.com/c4agxozWj.webp","cdn":"https://cdn.aceimg.com/c4agxozWj.webp","viewer":"https://aceimg.com/upload/?f=c4agxozWj.webp"},{"order":14,"source_order":48,"id":21081605,"title":"Photo 14","filename":"25cfcd39-8cc9-4f96-a5f9-f879824f85d5_images_40_.webp","added":"2026-10-24T00:26:30.000Z","bytes":22034,"width":1000,"height":561,"orientation":"landscape","src":"https://cdn.aceimg.com/qXVskNrVZ.webp","cdn":"https://cdn.aceimg.com/qXVskNrVZ.webp","viewer":"https://aceimg.com/upload/?f=qXVskNrVZ.webp"},{"order":15,"source_order":49,"id":21081600,"title":"Photo 15","filename":"3b4444bf-7550-44ad-aac1-ad062a13476d_images_44_.webp","added":"2026-10-24T00:26:25.000Z","bytes":156668,"width":1000,"height":1781,"orientation":"portrait","src":"https://cdn.aceimg.com/670HVPehN.webp","cdn":"https://cdn.aceimg.com/670HVPehN.webp","viewer":"https://aceimg.com/upload/?f=670HVPehN.webp"},{"order":16,"source_order":50,"id":21081587,"title":"Photo 16","filename":"1c66ddfc-435e-4627-9943-2bf94037b9d0_images_56_.webp","added":"2026-10-24T00:26:04.000Z","bytes":52826,"width":1000,"height":1500,"orientation":"portrait","src":"https://cdn.aceimg.com/L8PcAMpUp.webp","cdn":"https://cdn.aceimg.com/L8PcAMpUp.webp","viewer":"https://aceimg.com/upload/?f=L8PcAMpUp.webp"},{"order":17,"source_order":51,"id":21081544,"title":"Photo 17","filename":"67c568e6-bf38-4774-9268-3e4f5a4ad8fb_image_-_2026-10-23t234301_299.webp","added":"2026-10-24T00:23:40.000Z","bytes":61442,"width":1000,"height":1476,"orientation":"portrait","src":"https://cdn.aceimg.com/6p29bt6lE.webp","cdn":"https://cdn.aceimg.com/6p29bt6lE.webp","viewer":"https://aceimg.com/upload/?f=6p29bt6lE.webp"},{"order":18,"source_order":56,"id":21018748,"title":"Photo 18","filename":"e6aa1151-a2a3-4b0b-a7ad-adf827a00ef2_img_4517.webp","added":"2026-10-21T21:41:23.000Z","bytes":61420,"width":1000,"height":1249,"orientation":"portrait","src":"https://cdn.aceimg.com/mD90w7ZSm.webp","cdn":"https://cdn.aceimg.com/mD90w7ZSm.webp","viewer":"https://aceimg.com/upload/?f=mD90w7ZSm.webp"},{"order":19,"source_order":57,"id":21018745,"title":"Photo 19","filename":"ffad17ce-797f-4d26-8d47-914a040fcdd7_img_4520.webp","added":"2026-10-21T21:41:21.000Z","bytes":69874,"width":1000,"height":1250,"orientation":"portrait","src":"https://cdn.aceimg.com/HUDbDOofw.webp","cdn":"https://cdn.aceimg.com/HUDbDOofw.webp","viewer":"https://aceimg.com/upload/?f=HUDbDOofw.webp"},{"order":20,"source_order":58,"id":21018743,"title":"Photo 20","filename":"ab4bfe07-9752-4244-950b-13899c45027f_img_4519.webp","added":"2026-10-21T21:41:20.000Z","bytes":96652,"width":1000,"height":1250,"orientation":"portrait","src":"https://cdn.aceimg.com/z67QuB6gi.webp","cdn":"https://cdn.aceimg.com/z67QuB6gi.webp","viewer":"https://aceimg.com/upload/?f=z67QuB6gi.webp"},{"order":21,"source_order":59,"id":21018737,"title":"Photo 21","filename":"206c3de4-7ad8-4857-91e9-1df405ab08e8_img_4522.webp","added":"2026-10-21T21:41:16.000Z","bytes":96006,"width":1000,"height":1201,"orientation":"portrait","src":"https://cdn.aceimg.com/4VVor0lXL.webp","cdn":"https://cdn.aceimg.com/4VVor0lXL.webp","viewer":"https://aceimg.com/upload/?f=4VVor0lXL.webp"},{"order":22,"source_order":60,"id":21018735,"title":"Photo 22","filename":"35cf0494-8acb-4060-9ce0-b0949c763fad_img_4523.webp","added":"2026-10-21T21:41:14.000Z","bytes":167760,"width":1000,"height":1333,"orientation":"portrait","src":"https://cdn.aceimg.com/rcrw5IwII.webp","cdn":"https://cdn.aceimg.com/rcrw5IwII.webp","viewer":"https://aceimg.com/upload/?f=rcrw5IwII.webp"},{"order":23,"source_order":61,"id":21018730,"title":"Photo 23","filename":"ed5eaf45-8f55-42c5-ad46-056bb6557736_img_4525.webp","added":"2026-10-21T21:41:11.000Z","bytes":118772,"width":1000,"height":1250,"orientation":"portrait","src":"https://cdn.aceimg.com/ncECo7ERy.webp","cdn":"https://cdn.aceimg.com/ncECo7ERy.webp","viewer":"https://aceimg.com/upload/?f=ncECo7ERy.webp"},{"order":24,"source_order":62,"id":21018728,"title":"Photo 24","filename":"dbf0e701-b335-4f9e-9d65-6bf9df16d17e_img_4524.webp","added":"2026-10-21T21:41:10.000Z","bytes":163782,"width":1000,"height":1250,"orientation":"portrait","src":"https://cdn.aceimg.com/2hQPjJwRS.webp","cdn":"https://cdn.aceimg.com/2hQPjJwRS.webp","viewer":"https://aceimg.com/upload/?f=2hQPjJwRS.webp"},{"order":25,"source_order":64,"id":21005290,"title":"Photo 25","filename":"7e3b4500-0f4c-41a0-bfe9-8b58d515d58b_3444.webp","added":"2026-10-21T14:19:58.000Z","bytes":90920,"width":1000,"height":1500,"orientation":"portrait","src":"https://cdn.aceimg.com/l7yTTRjZN.webp","cdn":"https://cdn.aceimg.com/l7yTTRjZN.webp","viewer":"https://aceimg.com/upload/?f=l7yTTRjZN.webp"},{"order":26,"source_order":66,"id":20977762,"title":"Photo 26","filename":"f6b7ea6b-c6c4-4bae-8074-54ca39c4e74f_20352317.webp","added":"2026-10-20T22:59:23.000Z","bytes":59926,"width":1000,"height":740,"orientation":"landscape","src":"https://cdn.aceimg.com/bFVjJKh2a.webp","cdn":"https://cdn.aceimg.com/bFVjJKh2a.webp","viewer":"https://aceimg.com/upload/?f=bFVjJKh2a.webp"},{"order":27,"source_order":83,"id":20877819,"title":"Photo 27","filename":"d969ff72-44f6-46a2-8e69-7852a96c37a0_huq0kwbxsaec6sa.webp","added":"2026-10-18T21:54:14.000Z","bytes":56674,"width":1000,"height":1250,"orientation":"portrait","src":"https://cdn.aceimg.com/pj6TpdAzK.webp","cdn":"https://cdn.aceimg.com/pj6TpdAzK.webp","viewer":"https://aceimg.com/upload/?f=pj6TpdAzK.webp"},{"order":28,"source_order":84,"id":20877811,"title":"Photo 28","filename":"0fa10df8-8055-41e7-b6de-92df490c2859_hsjtlxwweaeowtc.webp","added":"2026-10-18T21:54:08.000Z","bytes":62392,"width":1000,"height":937,"orientation":"landscape","src":"https://cdn.aceimg.com/5hWmWtwPR.webp","cdn":"https://cdn.aceimg.com/5hWmWtwPR.webp","viewer":"https://aceimg.com/upload/?f=5hWmWtwPR.webp"}];
+const PHOTOS = [
+  ...[{"order":1,"source_order":2,"id":21136573,"title":"Photo 01","filename":"f119f354-5726-47a1-935e-d9cfcc2b7d7d_4132.webp","added":"2026-10-25T23:15:30.000Z","bytes":67534,"width":1000,"height":1804,"orientation":"portrait","src":"https://cdn.aceimg.com/k2sgnP7en.webp","cdn":"https://cdn.aceimg.com/k2sgnP7en.webp","viewer":"https://aceimg.com/upload/?f=k2sgnP7en.webp"},{"order":2,"source_order":27,"id":21114001,"title":"Photo 02","filename":"77a27420-a4c6-4f12-8ba5-b4e5ac40989d_3918.webp","added":"2026-10-24T21:06:25.000Z","bytes":67236,"width":1000,"height":1500,"orientation":"portrait","src":"https://cdn.aceimg.com/Y1XRuDeda.webp","cdn":"https://cdn.aceimg.com/Y1XRuDeda.webp","viewer":"https://aceimg.com/upload/?f=Y1XRuDeda.webp"},{"order":3,"source_order":37,"id":21090821,"title":"Photo 03","filename":"040f9f8c-f10d-4a06-bbdd-9a7df6ba44aa_c8490097-0b16-5571-95f5-1aab2b99a97b.webp","added":"2026-10-24T10:04:17.000Z","bytes":73452,"width":1000,"height":1000,"orientation":"square","src":"https://cdn.aceimg.com/tXVNcFvuC.webp","cdn":"https://cdn.aceimg.com/tXVNcFvuC.webp","viewer":"https://aceimg.com/upload/?f=tXVNcFvuC.webp"},{"order":4,"source_order":38,"id":21081719,"title":"Photo 04","filename":"96564669-c57d-4de5-bf9e-b4371d9d836a_hannapunzel_profile_pic.webp","added":"2026-10-24T00:31:20.000Z","bytes":43692,"width":1000,"height":960,"orientation":"landscape","src":"https://cdn.aceimg.com/ay6q5Aauv.webp","cdn":"https://cdn.aceimg.com/ay6q5Aauv.webp","viewer":"https://aceimg.com/upload/?f=ay6q5Aauv.webp"},{"order":5,"source_order":39,"id":21081716,"title":"Photo 05","filename":"da0143b4-4e8c-4f67-ade5-3cda943335b2_88996ff2-1e0c-5640-8813-960bbb12d6f4.webp","added":"2026-10-24T00:31:16.000Z","bytes":91420,"width":1000,"height":750,"orientation":"landscape","src":"https://cdn.aceimg.com/1EeZXxOji.webp","cdn":"https://cdn.aceimg.com/1EeZXxOji.webp","viewer":"https://aceimg.com/upload/?f=1EeZXxOji.webp"},{"order":6,"source_order":40,"id":21081700,"title":"Photo 06","filename":"519c86b8-fecf-486b-b8c5-d5a76d90f725_42e34d7a-d2c2-505c-bf8a-06b4f8da067d.webp","added":"2026-10-24T00:30:16.000Z","bytes":78168,"width":1000,"height":1000,"orientation":"square","src":"https://cdn.aceimg.com/ZxJS3lxtO.webp","cdn":"https://cdn.aceimg.com/ZxJS3lxtO.webp","viewer":"https://aceimg.com/upload/?f=ZxJS3lxtO.webp"},{"order":7,"source_order":41,"id":21081699,"title":"Photo 07","filename":"e281e249-cf80-4314-b8f2-55aab754a810_2f858f94-8414-5cec-a754-0e068e098518.webp","added":"2026-10-24T00:30:13.000Z","bytes":92144,"width":1000,"height":1238,"orientation":"portrait","src":"https://cdn.aceimg.com/1lP3d7CdJ.webp","cdn":"https://cdn.aceimg.com/1lP3d7CdJ.webp","viewer":"https://aceimg.com/upload/?f=1lP3d7CdJ.webp"},{"order":8,"source_order":42,"id":21081698,"title":"Photo 08","filename":"b1176e3d-721e-47a9-b336-0a51247c8941_94da04a2-fd93-5d38-9bcc-3ce93caeacac.webp","added":"2026-10-24T00:30:12.000Z","bytes":50140,"width":1000,"height":1454,"orientation":"portrait","src":"https://cdn.aceimg.com/6X5Rx59Td.webp","cdn":"https://cdn.aceimg.com/6X5Rx59Td.webp","viewer":"https://aceimg.com/upload/?f=6X5Rx59Td.webp"},{"order":9,"source_order":43,"id":21081675,"title":"Photo 09","filename":"cf4b3b55-bd67-4711-9044-a9a41aa5e023_kvsph24j.webp","added":"2026-10-24T00:29:18.000Z","bytes":100566,"width":1000,"height":1438,"orientation":"portrait","src":"https://cdn.aceimg.com/g2P53IFAw.webp","cdn":"https://cdn.aceimg.com/g2P53IFAw.webp","viewer":"https://aceimg.com/upload/?f=g2P53IFAw.webp"},{"order":10,"source_order":44,"id":21081645,"title":"Photo 10","filename":"c27f9249-6786-4db3-a9ea-e398c3cd8004_vdk3pb9j.webp","added":"2026-10-24T00:28:07.000Z","bytes":123682,"width":1000,"height":1511,"orientation":"portrait","src":"https://cdn.aceimg.com/ejZwbSxt5.webp","cdn":"https://cdn.aceimg.com/ejZwbSxt5.webp","viewer":"https://aceimg.com/upload/?f=ejZwbSxt5.webp"},{"order":11,"source_order":45,"id":21081611,"title":"Photo 11","filename":"e1458870-9abc-4baf-8aca-9c76e8d09e5e_images_34_.webp","added":"2026-10-24T00:26:40.000Z","bytes":37246,"width":1000,"height":561,"orientation":"landscape","src":"https://cdn.aceimg.com/VtlXiQ732.webp","cdn":"https://cdn.aceimg.com/VtlXiQ732.webp","viewer":"https://aceimg.com/upload/?f=VtlXiQ732.webp"},{"order":12,"source_order":46,"id":21081610,"title":"Photo 12","filename":"2ac741a5-07d9-4bc8-a6c5-105c3c870837_images_35_.webp","added":"2026-10-24T00:26:38.000Z","bytes":64784,"width":1000,"height":1781,"orientation":"portrait","src":"https://cdn.aceimg.com/1vM9LRZcq.webp","cdn":"https://cdn.aceimg.com/1vM9LRZcq.webp","viewer":"https://aceimg.com/upload/?f=1vM9LRZcq.webp"},{"order":13,"source_order":47,"id":21081609,"title":"Photo 13","filename":"f5722bdb-3843-4875-b013-81169b8bfcd9_images_36_.webp","added":"2026-10-24T00:26:36.000Z","bytes":31814,"width":1000,"height":1737,"orientation":"portrait","src":"https://cdn.aceimg.com/c4agxozWj.webp","cdn":"https://cdn.aceimg.com/c4agxozWj.webp","viewer":"https://aceimg.com/upload/?f=c4agxozWj.webp"},{"order":14,"source_order":48,"id":21081605,"title":"Photo 14","filename":"25cfcd39-8cc9-4f96-a5f9-f879824f85d5_images_40_.webp","added":"2026-10-24T00:26:30.000Z","bytes":22034,"width":1000,"height":561,"orientation":"landscape","src":"https://cdn.aceimg.com/qXVskNrVZ.webp","cdn":"https://cdn.aceimg.com/qXVskNrVZ.webp","viewer":"https://aceimg.com/upload/?f=qXVskNrVZ.webp"},{"order":15,"source_order":49,"id":21081600,"title":"Photo 15","filename":"3b4444bf-7550-44ad-aac1-ad062a13476d_images_44_.webp","added":"2026-10-24T00:26:25.000Z","bytes":156668,"width":1000,"height":1781,"orientation":"portrait","src":"https://cdn.aceimg.com/670HVPehN.webp","cdn":"https://cdn.aceimg.com/670HVPehN.webp","viewer":"https://aceimg.com/upload/?f=670HVPehN.webp"},{"order":16,"source_order":50,"id":21081587,"title":"Photo 16","filename":"1c66ddfc-435e-4627-9943-2bf94037b9d0_images_56_.webp","added":"2026-10-24T00:26:04.000Z","bytes":52826,"width":1000,"height":1500,"orientation":"portrait","src":"https://cdn.aceimg.com/L8PcAMpUp.webp","cdn":"https://cdn.aceimg.com/L8PcAMpUp.webp","viewer":"https://aceimg.com/upload/?f=L8PcAMpUp.webp"},{"order":17,"source_order":51,"id":21081544,"title":"Photo 17","filename":"67c568e6-bf38-4774-9268-3e4f5a4ad8fb_image_-_2026-10-23t234301_299.webp","added":"2026-10-24T00:23:40.000Z","bytes":61442,"width":1000,"height":1476,"orientation":"portrait","src":"https://cdn.aceimg.com/6p29bt6lE.webp","cdn":"https://cdn.aceimg.com/6p29bt6lE.webp","viewer":"https://aceimg.com/upload/?f=6p29bt6lE.webp"},{"order":18,"source_order":56,"id":21018748,"title":"Photo 18","filename":"e6aa1151-a2a3-4b0b-a7ad-adf827a00ef2_img_4517.webp","added":"2026-10-21T21:41:23.000Z","bytes":61420,"width":1000,"height":1249,"orientation":"portrait","src":"https://cdn.aceimg.com/mD90w7ZSm.webp","cdn":"https://cdn.aceimg.com/mD90w7ZSm.webp","viewer":"https://aceimg.com/upload/?f=mD90w7ZSm.webp"},{"order":19,"source_order":57,"id":21018745,"title":"Photo 19","filename":"ffad17ce-797f-4d26-8d47-914a040fcdd7_img_4520.webp","added":"2026-10-21T21:41:21.000Z","bytes":69874,"width":1000,"height":1250,"orientation":"portrait","src":"https://cdn.aceimg.com/HUDbDOofw.webp","cdn":"https://cdn.aceimg.com/HUDbDOofw.webp","viewer":"https://aceimg.com/upload/?f=HUDbDOofw.webp"},{"order":20,"source_order":58,"id":21018743,"title":"Photo 20","filename":"ab4bfe07-9752-4244-950b-13899c45027f_img_4519.webp","added":"2026-10-21T21:41:20.000Z","bytes":96652,"width":1000,"height":1250,"orientation":"portrait","src":"https://cdn.aceimg.com/z67QuB6gi.webp","cdn":"https://cdn.aceimg.com/z67QuB6gi.webp","viewer":"https://aceimg.com/upload/?f=z67QuB6gi.webp"},{"order":21,"source_order":59,"id":21018737,"title":"Photo 21","filename":"206c3de4-7ad8-4857-91e9-1df405ab08e8_img_4522.webp","added":"2026-10-21T21:41:16.000Z","bytes":96006,"width":1000,"height":1201,"orientation":"portrait","src":"https://cdn.aceimg.com/4VVor0lXL.webp","cdn":"https://cdn.aceimg.com/4VVor0lXL.webp","viewer":"https://aceimg.com/upload/?f=4VVor0lXL.webp"},{"order":22,"source_order":60,"id":21018735,"title":"Photo 22","filename":"35cf0494-8acb-4060-9ce0-b0949c763fad_img_4523.webp","added":"2026-10-21T21:41:14.000Z","bytes":167760,"width":1000,"height":1333,"orientation":"portrait","src":"https://cdn.aceimg.com/rcrw5IwII.webp","cdn":"https://cdn.aceimg.com/rcrw5IwII.webp","viewer":"https://aceimg.com/upload/?f=rcrw5IwII.webp"},{"order":23,"source_order":61,"id":21018730,"title":"Photo 23","filename":"ed5eaf45-8f55-42c5-ad46-056bb6557736_img_4525.webp","added":"2026-10-21T21:41:11.000Z","bytes":118772,"width":1000,"height":1250,"orientation":"portrait","src":"https://cdn.aceimg.com/ncECo7ERy.webp","cdn":"https://cdn.aceimg.com/ncECo7ERy.webp","viewer":"https://aceimg.com/upload/?f=ncECo7ERy.webp"},{"order":24,"source_order":62,"id":21018728,"title":"Photo 24","filename":"dbf0e701-b335-4f9e-9d65-6bf9df16d17e_img_4524.webp","added":"2026-10-21T21:41:10.000Z","bytes":163782,"width":1000,"height":1250,"orientation":"portrait","src":"https://cdn.aceimg.com/2hQPjJwRS.webp","cdn":"https://cdn.aceimg.com/2hQPjJwRS.webp","viewer":"https://aceimg.com/upload/?f=2hQPjJwRS.webp"},{"order":25,"source_order":64,"id":21005290,"title":"Photo 25","filename":"7e3b4500-0f4c-41a0-bfe9-8b58d515d58b_3444.webp","added":"2026-10-21T14:19:58.000Z","bytes":90920,"width":1000,"height":1500,"orientation":"portrait","src":"https://cdn.aceimg.com/l7yTTRjZN.webp","cdn":"https://cdn.aceimg.com/l7yTTRjZN.webp","viewer":"https://aceimg.com/upload/?f=l7yTTRjZN.webp"},{"order":26,"source_order":66,"id":20977762,"title":"Photo 26","filename":"f6b7ea6b-c6c4-4bae-8074-54ca39c4e74f_20352317.webp","added":"2026-10-20T22:59:23.000Z","bytes":59926,"width":1000,"height":740,"orientation":"landscape","src":"https://cdn.aceimg.com/bFVjJKh2a.webp","cdn":"https://cdn.aceimg.com/bFVjJKh2a.webp","viewer":"https://aceimg.com/upload/?f=bFVjJKh2a.webp"},{"order":27,"source_order":83,"id":20877819,"title":"Photo 27","filename":"d969ff72-44f6-46a2-8e69-7852a96c37a0_huq0kwbxsaec6sa.webp","added":"2026-10-18T21:54:14.000Z","bytes":56674,"width":1000,"height":1250,"orientation":"portrait","src":"https://cdn.aceimg.com/pj6TpdAzK.webp","cdn":"https://cdn.aceimg.com/pj6TpdAzK.webp","viewer":"https://aceimg.com/upload/?f=pj6TpdAzK.webp"},{"order":28,"source_order":84,"id":20877811,"title":"Photo 28","filename":"0fa10df8-8055-41e7-b6de-92df490c2859_hsjtlxwweaeowtc.webp","added":"2026-10-18T21:54:08.000Z","bytes":62392,"width":1000,"height":937,"orientation":"landscape","src":"https://cdn.aceimg.com/5hWmWtwPR.webp","cdn":"https://cdn.aceimg.com/5hWmWtwPR.webp","viewer":"https://aceimg.com/upload/?f=5hWmWtwPR.webp"}].map(photo => ({...photo, category:'hannapunzel'})),
+  ...[{"order":1,"source_id":21107606,"title":"miamiaof 01","filename":"036_miamiaof_21107606.webp","added":"2026-10-25T08:40:48Z","bytes":100520,"width":1000,"height":1935,"orientation":"portrait","format":"WEBP","src":"https://cdn.aceimg.com/0EN9FhGGk.webp","cdn":"https://cdn.aceimg.com/0EN9FhGGk.webp","viewer":"https://aceimg.com/upload/?f=0EN9FhGGk.webp"},{"order":2,"source_id":21107605,"title":"miamiaof 02","filename":"037_miamiaof_21107605.webp","added":"2026-10-25T08:40:48Z","bytes":88114,"width":1000,"height":1683,"orientation":"portrait","format":"WEBP","src":"https://cdn.aceimg.com/6AgVFsLh4.webp","cdn":"https://cdn.aceimg.com/6AgVFsLh4.webp","viewer":"https://aceimg.com/upload/?f=6AgVFsLh4.webp"},{"order":3,"source_id":21107604,"title":"miamiaof 03","filename":"038_miamiaof_21107604.webp","added":"2026-10-25T08:40:48Z","bytes":85026,"width":1000,"height":1710,"orientation":"portrait","format":"WEBP","src":"https://cdn.aceimg.com/DAJWLs0U5.webp","cdn":"https://cdn.aceimg.com/DAJWLs0U5.webp","viewer":"https://aceimg.com/upload/?f=DAJWLs0U5.webp"},{"order":4,"source_id":21061414,"title":"miamiaof 04","filename":"061_miamiaof_21061414.webp","added":"2026-10-25T08:41:11Z","bytes":89828,"width":1000,"height":1484,"orientation":"portrait","format":"WEBP","src":"https://cdn.aceimg.com/gvfNDIa55.webp","cdn":"https://cdn.aceimg.com/gvfNDIa55.webp","viewer":"https://aceimg.com/upload/?f=gvfNDIa55.webp"},{"order":5,"source_id":21061413,"title":"miamiaof 05","filename":"062_miamiaof_21061413.webp","added":"2026-10-25T08:41:11Z","bytes":79370,"width":1000,"height":1333,"orientation":"portrait","format":"WEBP","src":"https://cdn.aceimg.com/ayLJwkERu.webp","cdn":"https://cdn.aceimg.com/ayLJwkERu.webp","viewer":"https://aceimg.com/upload/?f=ayLJwkERu.webp"},{"order":6,"source_id":21061412,"title":"miamiaof 06","filename":"063_miamiaof_21061412.webp","added":"2026-10-25T08:41:11Z","bytes":107744,"width":1000,"height":1580,"orientation":"portrait","format":"WEBP","src":"https://cdn.aceimg.com/O7pqvNCjc.webp","cdn":"https://cdn.aceimg.com/O7pqvNCjc.webp","viewer":"https://aceimg.com/upload/?f=O7pqvNCjc.webp"},{"order":7,"source_id":21061409,"title":"miamiaof 07","filename":"064_miamiaof_21061409.webp","added":"2026-10-25T08:41:12Z","bytes":23876,"width":1000,"height":564,"orientation":"landscape","format":"WEBP","src":"https://cdn.aceimg.com/xSHfkqiyh.webp","cdn":"https://cdn.aceimg.com/xSHfkqiyh.webp","viewer":"https://aceimg.com/upload/?f=xSHfkqiyh.webp"},{"order":8,"source_id":21061408,"title":"miamiaof 08","filename":"065_miamiaof_21061408.webp","added":"2026-10-25T08:41:12Z","bytes":26754,"width":1000,"height":564,"orientation":"landscape","format":"WEBP","src":"https://cdn.aceimg.com/GwRUF3hQj.webp","cdn":"https://cdn.aceimg.com/GwRUF3hQj.webp","viewer":"https://aceimg.com/upload/?f=GwRUF3hQj.webp"},{"order":9,"source_id":21061406,"title":"miamiaof 09","filename":"066_miamiaof_21061406.webp","added":"2026-10-25T08:41:12Z","bytes":72436,"width":1000,"height":1778,"orientation":"portrait","format":"WEBP","src":"https://cdn.aceimg.com/PtjxuuzD3.webp","cdn":"https://cdn.aceimg.com/PtjxuuzD3.webp","viewer":"https://aceimg.com/upload/?f=PtjxuuzD3.webp"},{"order":10,"source_id":21061403,"title":"miamiaof 10","filename":"067_miamiaof_21061403.webp","added":"2026-10-25T08:41:12Z","bytes":51520,"width":1000,"height":1780,"orientation":"portrait","format":"WEBP","src":"https://cdn.aceimg.com/TNRbD2pMJ.webp","cdn":"https://cdn.aceimg.com/TNRbD2pMJ.webp","viewer":"https://aceimg.com/upload/?f=TNRbD2pMJ.webp"},{"order":11,"source_id":21061374,"title":"miamiaof 11","filename":"072_miamiaof_21061374.webp","added":"2026-10-25T08:41:19Z","bytes":88740,"width":1000,"height":1489,"orientation":"portrait","format":"WEBP","src":"https://cdn.aceimg.com/BgcAT74bY.webp","cdn":"https://cdn.aceimg.com/BgcAT74bY.webp","viewer":"https://aceimg.com/upload/?f=BgcAT74bY.webp"},{"order":12,"source_id":21061373,"title":"miamiaof 12","filename":"073_miamiaof_21061373.webp","added":"2026-10-25T08:41:19Z","bytes":131844,"width":1000,"height":1597,"orientation":"portrait","format":"WEBP","src":"https://cdn.aceimg.com/lUx19epzQ.webp","cdn":"https://cdn.aceimg.com/lUx19epzQ.webp","viewer":"https://aceimg.com/upload/?f=lUx19epzQ.webp"},{"order":13,"source_id":21061371,"title":"miamiaof 13","filename":"074_miamiaof_21061371.webp","added":"2026-10-25T08:41:19Z","bytes":79268,"width":1000,"height":1331,"orientation":"portrait","format":"WEBP","src":"https://cdn.aceimg.com/aAdCbKESe.webp","cdn":"https://cdn.aceimg.com/aAdCbKESe.webp","viewer":"https://aceimg.com/upload/?f=aAdCbKESe.webp"},{"order":14,"source_id":21061369,"title":"miamiaof 14","filename":"075_miamiaof_21061369.webp","added":"2026-10-25T08:41:19Z","bytes":67228,"width":1000,"height":1484,"orientation":"portrait","format":"WEBP","src":"https://cdn.aceimg.com/hxnXS9M0G.webp","cdn":"https://cdn.aceimg.com/hxnXS9M0G.webp","viewer":"https://aceimg.com/upload/?f=hxnXS9M0G.webp"},{"order":15,"source_id":21061366,"title":"miamiaof 15","filename":"076_miamiaof_21061366.webp","added":"2026-10-25T08:41:19Z","bytes":79550,"width":1000,"height":1641,"orientation":"portrait","format":"WEBP","src":"https://cdn.aceimg.com/Mi9SeBpPj.webp","cdn":"https://cdn.aceimg.com/Mi9SeBpPj.webp","viewer":"https://aceimg.com/upload/?f=Mi9SeBpPj.webp"},{"order":16,"source_id":21061365,"title":"miamiaof 16","filename":"077_miamiaof_21061365.webp","added":"2026-10-25T08:41:19Z","bytes":47784,"width":1000,"height":1780,"orientation":"portrait","format":"WEBP","src":"https://cdn.aceimg.com/U14YGNQtq.webp","cdn":"https://cdn.aceimg.com/U14YGNQtq.webp","viewer":"https://aceimg.com/upload/?f=U14YGNQtq.webp"},{"order":17,"source_id":21061364,"title":"miamiaof 17","filename":"078_miamiaof_21061364.webp","added":"2026-10-25T08:41:21Z","bytes":67848,"width":1000,"height":1778,"orientation":"portrait","format":"WEBP","src":"https://cdn.aceimg.com/YNZrb6Ejw.webp","cdn":"https://cdn.aceimg.com/YNZrb6Ejw.webp","viewer":"https://aceimg.com/upload/?f=YNZrb6Ejw.webp"},{"order":18,"source_id":21061363,"title":"miamiaof 18","filename":"079_miamiaof_21061363.webp","added":"2026-10-25T08:41:21Z","bytes":49120,"width":1000,"height":1778,"orientation":"portrait","format":"WEBP","src":"https://cdn.aceimg.com/8SnOGssvd.webp","cdn":"https://cdn.aceimg.com/8SnOGssvd.webp","viewer":"https://aceimg.com/upload/?f=8SnOGssvd.webp"},{"order":19,"source_id":21061359,"title":"miamiaof 19","filename":"080_miamiaof_21061359.webp","added":"2026-10-25T08:41:21Z","bytes":33088,"width":1000,"height":564,"orientation":"landscape","format":"WEBP","src":"https://cdn.aceimg.com/0I90m2Yt0.webp","cdn":"https://cdn.aceimg.com/0I90m2Yt0.webp","viewer":"https://aceimg.com/upload/?f=0I90m2Yt0.webp"},{"order":20,"source_id":21061358,"title":"miamiaof 20","filename":"081_miamiaof_21061358.webp","added":"2026-10-25T08:41:21Z","bytes":32072,"width":1000,"height":564,"orientation":"landscape","format":"WEBP","src":"https://cdn.aceimg.com/pDBEmt24A.webp","cdn":"https://cdn.aceimg.com/pDBEmt24A.webp","viewer":"https://aceimg.com/upload/?f=pDBEmt24A.webp"}].map(photo => ({...photo, category:'miamiaof'})),
+  ...[{"order":21,"video_order":1,"source_id":21061376,"title":"miamiaof video 01","filename":"071_miamiaof_21061376.mp4","added":"2026-10-25T08:41:19Z","bytes":455200,"width":480,"height":852,"duration":8.666667,"codec":"h264","orientation":"portrait","format":"MP4","src":"https://cdn.aceimg.com/nv1lhMjWA.mp4","cdn":"https://cdn.aceimg.com/nv1lhMjWA.mp4","viewer":"https://aceimg.com/upload/?f=nv1lhMjWA.mp4"},{"order":22,"video_order":2,"source_id":20694741,"title":"miamiaof video 02","filename":"354_miamiaof_20694741.mp4","added":"2026-10-25T08:55:31Z","bytes":496807,"width":608,"height":1080,"duration":2.45,"codec":"h264","orientation":"portrait","format":"MP4","src":"https://cdn.aceimg.com/nHZXlvRD3.mp4","cdn":"https://cdn.aceimg.com/nHZXlvRD3.mp4","viewer":"https://aceimg.com/upload/?f=nHZXlvRD3.mp4"},{"order":23,"video_order":3,"source_id":20563120,"title":"miamiaof video 03","filename":"494_miamiaof_20563120.mp4","added":"2026-10-25T08:57:17Z","bytes":514250,"width":608,"height":1080,"duration":3.5,"codec":"h264","orientation":"portrait","format":"MP4","src":"https://cdn.aceimg.com/aqdcNdXvS.mp4","cdn":"https://cdn.aceimg.com/aqdcNdXvS.mp4","viewer":"https://aceimg.com/upload/?f=aqdcNdXvS.mp4"},{"order":24,"video_order":4,"source_id":20694754,"title":"miamiaof video 04","filename":"347_miamiaof_20694754.mp4","added":"2026-10-25T08:55:24Z","bytes":521626,"width":628,"height":1080,"duration":3.116667,"codec":"h264","orientation":"portrait","format":"MP4","src":"https://cdn.aceimg.com/8rORf1dV4.mp4","cdn":"https://cdn.aceimg.com/8rORf1dV4.mp4","viewer":"https://aceimg.com/upload/?f=8rORf1dV4.mp4"},{"order":25,"video_order":5,"source_id":20694745,"title":"miamiaof video 05","filename":"353_miamiaof_20694745.mp4","added":"2026-10-25T08:55:28Z","bytes":547473,"width":620,"height":1080,"duration":3.0,"codec":"h264","orientation":"portrait","format":"MP4","src":"https://cdn.aceimg.com/jWeEg7Lm5.mp4","cdn":"https://cdn.aceimg.com/jWeEg7Lm5.mp4","viewer":"https://aceimg.com/upload/?f=jWeEg7Lm5.mp4"},{"order":26,"video_order":6,"source_id":20694722,"title":"miamiaof video 06","filename":"357_miamiaof_20694722.mp4","added":"2026-10-25T08:55:31Z","bytes":571365,"width":622,"height":1080,"duration":2.783333,"codec":"h264","orientation":"portrait","format":"MP4","src":"https://cdn.aceimg.com/1P34VWHPQ.mp4","cdn":"https://cdn.aceimg.com/1P34VWHPQ.mp4","viewer":"https://aceimg.com/upload/?f=1P34VWHPQ.mp4"},{"order":27,"video_order":7,"source_id":20627794,"title":"miamiaof video 07","filename":"487_miamiaof_20627794.mp4","added":"2026-10-25T08:57:11Z","bytes":581169,"width":568,"height":320,"duration":5.9059,"codec":"h264","orientation":"landscape","format":"MP4","src":"https://cdn.aceimg.com/HyNkQkNtq.mp4","cdn":"https://cdn.aceimg.com/HyNkQkNtq.mp4","viewer":"https://aceimg.com/upload/?f=HyNkQkNtq.mp4"},{"order":28,"video_order":8,"source_id":21052467,"title":"miamiaof video 08","filename":"106_miamiaof_21052467.mp4","added":"2026-10-25T08:41:31Z","bytes":589307,"width":486,"height":1080,"duration":3.706,"codec":"h264","orientation":"portrait","format":"MP4","src":"https://cdn.aceimg.com/y2g74bOF7.mp4","cdn":"https://cdn.aceimg.com/y2g74bOF7.mp4","viewer":"https://aceimg.com/upload/?f=y2g74bOF7.mp4"},{"order":29,"video_order":9,"source_id":21052439,"title":"miamiaof video 09","filename":"107_miamiaof_21052439.mp4","added":"2026-10-25T08:41:34Z","bytes":611895,"width":486,"height":1080,"duration":4.166667,"codec":"h264","orientation":"portrait","format":"MP4","src":"https://cdn.aceimg.com/Okhm87FXd.mp4","cdn":"https://cdn.aceimg.com/Okhm87FXd.mp4","viewer":"https://aceimg.com/upload/?f=Okhm87FXd.mp4"},{"order":30,"video_order":10,"source_id":21052488,"title":"miamiaof video 10","filename":"105_miamiaof_21052488.mp4","added":"2026-10-25T08:41:31Z","bytes":612642,"width":486,"height":1080,"duration":3.97,"codec":"h264","orientation":"portrait","format":"MP4","src":"https://cdn.aceimg.com/UwPTa5Ojr.mp4","cdn":"https://cdn.aceimg.com/UwPTa5Ojr.mp4","viewer":"https://aceimg.com/upload/?f=UwPTa5Ojr.mp4"}].map(video => ({...video, category:'miamiaof', kind:'video'}))
+];
+const CATEGORY_NAMES = {hannapunzel:'Hannapunzel', miamiaof:'miamiaof'};
 
 const gallery = document.getElementById('gallery');
 const emptyState = document.getElementById('emptyState');
+const emptyIcon = document.getElementById('emptyIcon');
+const emptyTitle = document.getElementById('emptyTitle');
+const emptyText = document.getElementById('emptyText');
 const resultCount = document.getElementById('resultCount');
-const searchInput = document.getElementById('search');
-const sortSelect = document.getElementById('sort');
-const filterButtons = [...document.querySelectorAll('[data-filter]')];
+const categoryButtons = [...document.querySelectorAll('[data-category]')];
+const randomButtons = [document.getElementById('randomTop'),document.getElementById('randomHero')];
 const lightbox = document.getElementById('lightbox');
 const lightboxImage = document.getElementById('lightboxImage');
+const lightboxVideo = document.getElementById('lightboxVideo');
 const lightboxTitle = document.getElementById('lightboxTitle');
 const lightboxMeta = document.getElementById('lightboxMeta');
 const lightboxCount = document.getElementById('lightboxCount');
 const downloadPhoto = document.getElementById('downloadPhoto');
 const copyDirectLink = document.getElementById('copyDirectLink');
+const fullscreenVideoButton = document.getElementById('fullscreenVideo');
 const closeButton = document.getElementById('closeLightbox');
-const state = {filter:'all', query:'', sort:'collection', visible:[...PHOTOS], current:0};
+const state = {category:null, visible:[], current:0};
 let lastFocusedElement = null;
 
 const pad = value => String(value).padStart(2,'0');
 const formatBytes = bytes => bytes >= 1048576 ? `${(bytes/1048576).toFixed(2)} MB` : `${Math.round(bytes/1024)} KB`;
 const formatDate = value => new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'short',year:'numeric',timeZone:'UTC'}).format(new Date(value));
+const formatDuration = seconds => `${Number(seconds).toFixed(1)}s`;
 
 function visiblePhotos(){
-  let photos = PHOTOS.filter(photo => {
-    const orientationMatch = state.filter === 'all' || photo.orientation === state.filter;
-    const haystack = `${photo.order} ${pad(photo.order)} ${photo.title} ${photo.filename} ${photo.added} ${photo.id}`.toLowerCase();
-    return orientationMatch && haystack.includes(state.query);
-  });
-  if(state.sort === 'newest') photos.sort((a,b) => b.added.localeCompare(a.added));
-  if(state.sort === 'oldest') photos.sort((a,b) => a.added.localeCompare(b.added));
-  if(state.sort === 'filename') photos.sort((a,b) => a.filename.localeCompare(b.filename));
-  if(state.sort === 'collection') photos.sort((a,b) => a.order-b.order);
-  return photos;
+  return state.category ? PHOTOS.filter(photo => photo.category === state.category).sort((a,b) => a.order-b.order) : [];
 }
 
 function makeCard(photo, index){
+  if(photo.kind === 'video') return makeVideoCard(photo,index);
   const article = document.createElement('article');
   article.className = 'photo-card';
   const button = document.createElement('button');
@@ -202,7 +186,7 @@ function makeCard(photo, index){
   button.addEventListener('click',() => openLightbox(index));
   const frame = document.createElement('div'); frame.className = 'photo-frame';
   const image = document.createElement('img');
-  image.src = photo.src; image.alt = `${photo.title} from the Hannapunzel collection`;
+  image.src = photo.src; image.alt = `${photo.title} from the ${CATEGORY_NAMES[photo.category]} collection`;
   image.width = photo.width; image.height = photo.height; image.loading = index < 4 ? 'eager' : 'lazy'; image.decoding = 'async';
   const number = document.createElement('span'); number.className = 'index-badge'; number.textContent = `#${pad(photo.order)}`;
   const orientation = document.createElement('span'); orientation.className = 'orientation-badge'; orientation.textContent = photo.orientation.toUpperCase();
@@ -214,27 +198,75 @@ function makeCard(photo, index){
   titleRow.append(title,dot);
   const meta = document.createElement('p'); meta.className = 'photo-meta'; meta.textContent = `${formatDate(photo.added)} · ${photo.width} × ${photo.height}`;
   const specs = document.createElement('div'); specs.className = 'photo-specs';
-  const type = document.createElement('span'); type.textContent = 'ORIGINAL WEBP';
+  const type = document.createElement('span'); type.textContent = `ORIGINAL ${photo.format || 'WEBP'}`;
   const size = document.createElement('span'); size.textContent = formatBytes(photo.bytes);
   specs.append(type,size); info.append(titleRow,meta,specs); button.append(frame,info); article.append(button);
   return article;
 }
 
+function makeVideoCard(photo,index){
+  const article = document.createElement('article'); article.className = 'photo-card video-card';
+  const frame = document.createElement('div'); frame.className = 'photo-frame';
+  const video = document.createElement('video');
+  video.src = photo.src; video.controls = true; video.preload = 'metadata'; video.playsInline = true;
+  video.width = photo.width; video.height = photo.height;
+  video.setAttribute('aria-label',`${photo.title}, ${formatDuration(photo.duration)}`);
+  const number = document.createElement('span'); number.className = 'index-badge'; number.textContent = `#${pad(photo.order)}`;
+  const badge = document.createElement('span'); badge.className = 'orientation-badge'; badge.textContent = 'VIDEO';
+  frame.append(video,number,badge);
+  const info = document.createElement('div'); info.className = 'photo-info';
+  const titleRow = document.createElement('div'); titleRow.className = 'photo-title-row';
+  const title = document.createElement('h3'); title.className = 'photo-title'; title.textContent = photo.title;
+  const dot = document.createElement('span'); dot.className = 'photo-dot'; dot.setAttribute('aria-hidden','true');
+  titleRow.append(title,dot);
+  const meta = document.createElement('p'); meta.className = 'photo-meta'; meta.textContent = `${formatDate(photo.added)} · ${photo.width} × ${photo.height} · ${formatDuration(photo.duration)}`;
+  const specs = document.createElement('div'); specs.className = 'photo-specs';
+  const type = document.createElement('span'); type.textContent = 'MP4 VIDEO';
+  const size = document.createElement('span'); size.textContent = formatBytes(photo.bytes);
+  specs.append(type,size);
+  const open = document.createElement('button'); open.type = 'button'; open.className = 'btn btn-yellow video-open'; open.textContent = 'OPEN IN VIEWER ↗';
+  open.setAttribute('aria-label',`Open ${photo.title} in viewer`); open.addEventListener('click',() => openLightbox(index));
+  const fullscreen = document.createElement('button'); fullscreen.type = 'button'; fullscreen.className = 'btn btn-coral video-fullscreen'; fullscreen.textContent = 'FULL SCREEN ⛶';
+  fullscreen.setAttribute('aria-label',`Play ${photo.title} in full screen`); fullscreen.addEventListener('click',() => openVideoFullscreen(index));
+  info.append(titleRow,meta,specs,open,fullscreen); article.append(frame,info);
+  return article;
+}
+
 function render(){
+  const categorySelected = Boolean(state.category);
+  const categoryTotal = categorySelected ? PHOTOS.filter(photo => photo.category === state.category).length : PHOTOS.length;
   state.visible = visiblePhotos();
   gallery.replaceChildren(...state.visible.map((photo,index) => makeCard(photo,index)));
-  resultCount.textContent = `${state.visible.length} / ${PHOTOS.length} FRAMES`;
+  gallery.setAttribute('aria-label',categorySelected ? `${CATEGORY_NAMES[state.category]} media collection` : 'Media collection');
+  resultCount.textContent = categorySelected ? `${state.visible.length} / ${categoryTotal} ITEMS` : `SELECT A CATEGORY · ${PHOTOS.length} ITEMS READY`;
   emptyState.hidden = state.visible.length !== 0;
   gallery.hidden = state.visible.length === 0;
+  emptyIcon.textContent = categorySelected ? '?' : '01';
+  emptyTitle.textContent = categorySelected ? 'NO MEDIA FOUND' : 'SELECT A CATEGORY';
+  emptyText.textContent = categorySelected ? 'No media is available in this category.' : 'Choose Hannapunzel or miamiaof above to reveal its media.';
+  randomButtons.forEach(button => {button.disabled = state.visible.length === 0;});
 }
 
 function updateLightbox(){
   const photo = state.visible[state.current];
   if(!photo) return;
-  lightboxImage.src = photo.src;
-  lightboxImage.alt = `${photo.title} from the Hannapunzel collection, ${photo.width} by ${photo.height} pixels`;
+  const isVideo = photo.kind === 'video';
+  fullscreenVideoButton.hidden = !isVideo;
+  if(!isVideo && document.fullscreenElement === lightboxVideo){document.exitFullscreen().catch(() => {});}
+  lightboxVideo.pause();
+  if(isVideo){
+    lightboxImage.hidden = true; lightboxImage.removeAttribute('src');
+    lightboxVideo.hidden = false; lightboxVideo.width = photo.width; lightboxVideo.height = photo.height;
+    lightboxVideo.setAttribute('aria-label',`${photo.title}, ${formatDuration(photo.duration)}`);
+    if(lightboxVideo.getAttribute('src') !== photo.src){lightboxVideo.src = photo.src; lightboxVideo.load();}
+  }else{
+    lightboxVideo.hidden = true;
+    if(lightboxVideo.hasAttribute('src')){lightboxVideo.removeAttribute('src'); lightboxVideo.load();}
+    lightboxImage.hidden = false; lightboxImage.src = photo.src;
+    lightboxImage.alt = `${photo.title} from the ${CATEGORY_NAMES[photo.category]} collection, ${photo.width} by ${photo.height} pixels`;
+  }
   lightboxTitle.textContent = photo.title;
-  lightboxMeta.textContent = `${formatDate(photo.added)} · ${photo.width} × ${photo.height} · ${formatBytes(photo.bytes)} · ${photo.filename}`;
+  lightboxMeta.textContent = `${formatDate(photo.added)} · ${photo.width} × ${photo.height}${isVideo ? ` · ${formatDuration(photo.duration)}` : ''} · ${formatBytes(photo.bytes)} · ${photo.filename}`;
   lightboxCount.textContent = `${pad(state.current+1)} / ${pad(state.visible.length)}`;
   downloadPhoto.href = photo.cdn;
   copyDirectLink.textContent = 'COPY DIRECT LINK ⧉';
@@ -246,7 +278,23 @@ function openLightbox(index){
   state.current = index; updateLightbox();
   lightbox.hidden = false; document.body.classList.add('modal-open'); closeButton.focus();
 }
+async function requestLightboxFullscreen(){
+  if(lightbox.hidden || lightboxVideo.hidden) return;
+  lightbox.classList.remove('full-view');
+  try{
+    if(lightboxVideo.requestFullscreen){await lightboxVideo.requestFullscreen();}
+    else if(lightboxVideo.webkitEnterFullscreen){lightboxVideo.webkitEnterFullscreen();}
+    else{lightbox.classList.add('full-view');}
+  }catch{lightbox.classList.add('full-view');}
+}
+function openVideoFullscreen(index){
+  openLightbox(index);
+  requestLightboxFullscreen();
+}
 function closeLightbox(){
+  if(document.fullscreenElement === lightboxVideo){document.exitFullscreen().catch(() => {});}
+  lightbox.classList.remove('full-view');
+  lightboxVideo.pause();
   lightbox.hidden = true; document.body.classList.remove('modal-open');
   if(lastFocusedElement) lastFocusedElement.focus();
 }
@@ -262,17 +310,11 @@ function randomPhoto(){
   openLightbox(index);
 }
 
-filterButtons.forEach(button => button.addEventListener('click',() => {
-  state.filter = button.dataset.filter;
-  filterButtons.forEach(item => item.setAttribute('aria-pressed',String(item === button)));
+categoryButtons.forEach(button => button.addEventListener('click',() => {
+  state.category = state.category === button.dataset.category ? null : button.dataset.category;
+  categoryButtons.forEach(item => item.setAttribute('aria-pressed',String(item.dataset.category === state.category)));
   render();
 }));
-searchInput.addEventListener('input',event => {state.query = event.target.value.trim().toLowerCase();render();});
-sortSelect.addEventListener('change',event => {state.sort = event.target.value;render();});
-document.getElementById('resetFilters').addEventListener('click',() => {
-  state.filter = 'all'; state.query = ''; state.sort = 'collection'; searchInput.value = ''; sortSelect.value = 'collection';
-  filterButtons.forEach(button => button.setAttribute('aria-pressed',String(button.dataset.filter === 'all'))); render(); searchInput.focus();
-});
 document.getElementById('randomTop').addEventListener('click',randomPhoto);
 document.getElementById('randomHero').addEventListener('click',randomPhoto);
 async function copyText(text){
@@ -288,6 +330,7 @@ copyDirectLink.addEventListener('click',async () => {
   catch{copyDirectLink.textContent = 'COPY FAILED — OPEN ORIGINAL ↗';}
   setTimeout(() => {if(!lightbox.hidden) copyDirectLink.textContent = 'COPY DIRECT LINK ⧉';},1800);
 });
+fullscreenVideoButton.addEventListener('click',requestLightboxFullscreen);
 closeButton.addEventListener('click',closeLightbox);
 document.getElementById('previousPhoto').addEventListener('click',() => movePhoto(-1));
 document.getElementById('nextPhoto').addEventListener('click',() => movePhoto(1));
@@ -298,7 +341,7 @@ document.addEventListener('keydown',event => {
   if(event.key === 'ArrowLeft'){event.preventDefault();movePhoto(-1);}
   if(event.key === 'ArrowRight'){event.preventDefault();movePhoto(1);}
   if(event.key === 'Tab'){
-    const controls = [...lightbox.querySelectorAll('button,a[href]')].filter(element => !element.disabled);
+    const controls = [...lightbox.querySelectorAll('button,a[href],video')].filter(element => !element.disabled && !element.hidden);
     const first = controls[0], last = controls[controls.length-1];
     if(event.shiftKey && document.activeElement === first){event.preventDefault();last.focus();}
     else if(!event.shiftKey && document.activeElement === last){event.preventDefault();first.focus();}
