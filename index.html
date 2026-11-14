@@ -431,6 +431,11 @@ function loadChapter(comic, index){
     img.alt = `${comic.title} ${chapterLabel(ch.n)}, halaman ${i+1} dari ${ch.pages.length}`;
     img.loading = i < 3 ? 'eager' : 'lazy'; img.decoding = 'async';
     img.addEventListener('error', () => {
+      // fallback: kalau CDN aceimg tak terjangkau (arsip offline), pakai file lokal imgBase
+      const local = comic.imgBase + page[0];
+      if (img.dataset.fb !== '1' && img.src.indexOf(local) === -1){
+        img.dataset.fb = '1'; img.src = local; return;   // coba sekali lagi dari mirror/ lokal
+      }
       img.hidden = true;
       const msg = document.createElement('p'); msg.className = 'comic-error';
       msg.textContent = `Halaman ${i+1} gagal dimuat.`;
